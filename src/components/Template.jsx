@@ -1,7 +1,11 @@
-import React from "react";
-
+import React from 'react';
+import Button from '@material-ui/core/Button';
 const Template = () => {
-  return <h1>Hola mundo</h1>;
+  return (
+    <Button variant="contained" color="primary">
+      Hola Mundo!
+    </Button>
+  );
 };
 
 export default Template;
