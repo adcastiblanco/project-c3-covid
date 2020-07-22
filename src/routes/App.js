@@ -16,13 +16,15 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <Route exact path="/login" component={Login}></Route>
-        <Route exact path="/template" component={Template}></Route>
-        <Layout>
-          <Route exact path="/" component={Home}></Route>
-          <Route exact path="/users" component={User}></Route>
-          <Route exact path="/users/:userId/edit" component={UserEdit} />
-        </Layout>
+      <Switch>
+          <Route exact path="/login" component={Login}></Route>
+          <Route exact path="/template" component={Template}></Route>
+          <Layout>
+            <Route exact path="/" component={Home}></Route>
+            <Route exact path="/users" component={User}></Route>
+            <Route exact path="/users/:userId/edit" component={UserEdit} />
+          </Layout>
+        </Switch>
       </BrowserRouter>
     </ThemeProvider>
   );
