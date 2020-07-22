@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import { NavLink, Redirect } from 'react-router-dom';
-import { firebaseConfig } from '../../utils/firebase';
 
 import { connect } from 'react-redux';
 import { loginRequest } from '../../actions/index';
@@ -29,20 +28,6 @@ const Login = (props) => {
     e.preventDefault();
     const email = form.username;
     const password = form.password;
-    firebaseConfig
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((res) => {
-        console.log(res);
-        props.loginRequest({
-          id: res.user.uid,
-          username: res.user.displayName,
-          email: res.user.email,
-        });
-      })
-      .catch((e) => {
-        console.log(e);
-      });
   };
 
   if (props.user.id !== null) {

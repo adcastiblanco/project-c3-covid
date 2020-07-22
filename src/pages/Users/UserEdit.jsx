@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { firebaseConfig } from '../../utils/firebase';
 
 import UserForm from '../../components/users/UserForm';
 
@@ -11,7 +10,6 @@ const UserEdit = (props) => {
     email: '',
   });
 
-  const db = firebaseConfig.firestore();
 
   useEffect(() => {
     db.collection('users')

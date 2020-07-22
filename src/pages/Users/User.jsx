@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { firebaseConfig } from '../../utils/firebase';
 
 import {
   Container,
@@ -28,7 +27,6 @@ const useStyles = makeStyles({
 
 const User = () => {
   const [users, setusers] = useState([]);
-  const db = firebaseConfig.firestore();
 
   useEffect(() => {
     db.collection('users')

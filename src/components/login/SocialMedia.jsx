@@ -1,11 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-import {
-  firebaseConfig,
-  googleAuthProvider,
-  facebookAuthProvider,
-} from '../../utils/firebase';
 
 import { connect } from 'react-redux';
 import { loginRequest } from '../../actions/index';
@@ -17,59 +12,16 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 
 const SocialMedia = (props) => {
   const classes = useStyles();
-  const db = firebaseConfig.firestore();
+
 
   const handleLoginWithGoogle = () => {
     props.handleLoader(false);
-    firebaseConfig
-      .auth()
-      .signInWithPopup(googleAuthProvider)
-      .then((response) => {
-        props.handleLoader(true);
-        db.collection('users')
-          .doc(response.user.uid)
-          .set({
-            displayName: response.user.displayName,
-            email: response.user.email,
-          })
-          .then(() => {
-            props.loginRequest({
-              id: response.user.uid,
-              username: response.user.displayName,
-              email: response.user.email,
-            });
-            props.handleLoader(false);
-          })
-          .catch((error) => console.log(error));
-      })
-      .catch((error) => console.log(error));
+    
   };
 
   const handleLoginWithFacebook = () => {
     props.handleLoader(false);
-    firebaseConfig
-      .auth()
-      .signInWithPopup(facebookAuthProvider)
-      .then((response) => {
-        props.handleLoader(true);
-        db.collection('users')
-          .doc(response.user.uid)
-          .set({
-            id: response.user.uid,
-            displayName: response.user.displayName,
-            email: response.user.email,
-          })
-          .then(() => {
-            props.loginRequest({
-              id: response.user.uid,
-              username: response.user.displayName,
-              email: response.user.email,
-            });
-            props.handleLoader(false);
-          })
-          .catch((error) => console.log(error));
-      })
-      .catch((err) => console.log(err));
+    
   };
 
   const handleClick = () => {
