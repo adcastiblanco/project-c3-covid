@@ -1,33 +1,19 @@
-import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import React from 'react'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
-import Login from '../pages/login';
-import Home from '../pages/Home/Home';
-import Layout from '../components/layout/Layout';
-import User from '../pages/Users/User';
-import UserEdit from '../pages/Users/UserEdit';
-import Template from '../components/Template';
+import Layout from '../containers/Layout'
+import Home from '../containers/Home'
+import Login from '../containers/Login'
 
-import theme from '../theme';
-import { ThemeProvider } from '@material-ui/core';
-import '../assets/styles/index.css';
-
-const App = () => {
-  return (
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-      <Switch>
-          <Route exact path="/login" component={Login}></Route>
-          <Route exact path="/template" component={Template}></Route>
-          <Layout>
-            <Route exact path="/" component={Home}></Route>
-            <Route exact path="/users" component={User}></Route>
-            <Route exact path="/users/:userId/edit" component={UserEdit} />
-          </Layout>
+const App = () => (
+    <BrowserRouter>
+    <Layout>
+        <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/login" component={Login} />
         </Switch>
-      </BrowserRouter>
-    </ThemeProvider>
-  );
-};
+        </Layout>
+    </BrowserRouter>
+)
 
-export default App;
+export default App
