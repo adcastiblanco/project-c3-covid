@@ -8,6 +8,6 @@ const Layout = (props) => (
         <Header />
         {props.children}
         <Footer />
-    </>   
+    </>
 )
 export default Layout

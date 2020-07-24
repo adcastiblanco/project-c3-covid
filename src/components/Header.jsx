@@ -11,7 +11,7 @@ const Header = () => (
         </figure>
         <div className="header">
             <menu className="header-menu">
-                <ul>
+                <ul className="header-menu__list">
                     <li className="header-menu__item">Inicio</li>
                     <li className="header-menu__item">Covid</li>
                     <li className="header-menu__item">Estadisticas</li>

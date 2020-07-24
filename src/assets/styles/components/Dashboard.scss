@@ -1,0 +1,10 @@
+@import '../grids.scss';
+
+.home-mainStatistics {
+  @include display-grid;
+  @include grid-template-columns(1fr grid-repeat(3));
+}
+
+.home-mainStatistics__item {
+  @include grid-template-columns(1);
+}

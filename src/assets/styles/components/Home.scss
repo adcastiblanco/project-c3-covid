@@ -8,12 +8,12 @@
   @include grid-template-columns(1fr grid-repeat(3));
 }
 
-.home__sidebar {
+.home-sidebar {
   @include grid-column(1, 2);
   background-color: gray;
 }
 
-.home__dashboard {
+.home-dashboard {
   @include grid-column(2, 5);
   background-color: lightgray;
 }

@@ -3,7 +3,7 @@ import React from 'react'
 const Sidebar = () => {
 
     return(
-        <aside className="home__sidebar">
+        <aside className="home-sidebar">
             <div>
                 <h3>Sidebar Category</h3>
                 <ul>
