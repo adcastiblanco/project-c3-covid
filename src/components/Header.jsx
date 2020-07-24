@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 import '../assets/styles/components/Header.scss'
 
@@ -15,6 +16,9 @@ const Header = () => (
                     <li className="header-menu__item">Covid</li>
                     <li className="header-menu__item">Estadisticas</li>
                     <li className="header-menu__item">Perfil</li>
+                    <li className="header-menu__item">
+                        <Link to="/login">Iniciar sesión</Link>
+                    </li>
                 </ul>
             </menu>
         </div>
