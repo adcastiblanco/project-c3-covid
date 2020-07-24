@@ -5,6 +5,8 @@ import Layout from '../containers/Layout'
 import Home from '../containers/Home'
 import Login from '../containers/Login'
 
+import '../assets/styles/globals.scss'
+
 const App = () => (
     <BrowserRouter>
     <Layout>

@@ -1,0 +1,32 @@
+@import '../grids.scss';
+
+header {
+  display: flex;
+  justify-content: space-around;
+  @include display-grid;
+  @include grid-template-columns(1fr grid-repeat(3));
+}
+.logo {
+  @include grid-column(1, 2);
+}
+.header {
+  @include grid-column(2, 5);
+  background-color: lightgray;
+}
+.header-menu {
+  height: 100%;
+  margin: 0;
+}
+.header-menu ul {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0;
+}
+
+.header-menu__item {
+  list-style: none;
+  margin-right: 10px;
+  align-items: center;
+}
