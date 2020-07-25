@@ -1,51 +1,40 @@
 import React, { useState } from 'react';
-import axios from 'axios'
+import { Redirect } from 'react-router-dom';
 
 const Register = () => {
-  const [form, setValues] = useState({
-    first_name: '',
-    last_name: '',
-    country: '',
-    city: '',
-    age: '',
-    email: '',
-    password: '',
-  });
-  const handleInput = (event) => {
-    setValues({
-      ...form,
-      [event.target.name]: event.target.value,
-    });
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    axios
-      .post(
-        'https://cohort3apicovid.herokuapp.com/api/auth/sign-up',
-        {
-          withCredentials: true,
+    const [form, setValues] = useState({
+        first_name: '',
+        last_name: '',
+        country: '',
+        city: '',
+        years_old: '',
+        email: '',
+        password: '',
+      });
+      const handleInput = (event) => {
+        setValues({
+          ...form,
+          [event.target.name]: event.target.value,
+        });
+      };
+      const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(form);
+        fetch('https://cohort3apicovid.herokuapp.com/api/auth/sign-up', {
+          method: 'POST', // or 'PUT'
+          mode: 'cors',
+          body: JSON.stringify(form), // data can be `string` or {object}!
           headers: {
-            Accept: 'application/json',
             'Content-Type': 'application/json',
           },
-        }, 
-           {
-            first_name: form.first_name,
-            last_name: form.last_name,
-            country: form.country,
-            city: form.city,
-            age: form.age,
-            username: form.email,
-            password: form.password,
-          },
-      )
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log('Error on register');
-      });
-  };
+        }).then((res) =>{
+             console.log(res)
+            if(res.status === 201) {
+                alert('Registro exitoso')
+                location.href ="/";
+            }
+            });     
+    };  
   return (
     <div className="form-container sign-up-container">
       <form
@@ -97,7 +86,7 @@ const Register = () => {
           placeholder="Ciudad"
         />
         <input
-          name="age"
+          name="years_old"
           onChange={handleInput}
           className="form-input"
           type="number"
