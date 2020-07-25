@@ -1,5 +1,5 @@
 {
-  "name": "proyecto-c3-covid",
+  "name": "project-c3-covid",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,12 +11,13 @@
   "author": "juanchobuiles, adcastiblanco, luislizcano ",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.19.2",
     "dotenv": "^8.2.0",
     "eslint": "^7.5.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.3",
-    "material-table": "^1.64.0",
+    "heroku-cli": "^7.0.9",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",

@@ -1,43 +1,128 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react';
+import axios from 'axios'
 
 const Register = () => {
-    useEffect(() => {
-        let data = new FormData(document.getElementById('form-register'))
-        fetch('https://cohort3apicovid.herokuapp.com/', {
-            method: 'POST',
-            body: data
-        })
-            .then(function (response) {
-                if (response.ok) {
-                    return response.text()
-                }
-            })
-            .then(function (texto) {
-                console.log(texto);
-            })
-            .catch(function (err) {
-                console.log(err);
-            });
-    },[])
-    return (
-        <div className="form-container sign-up-container">
-            <form action="post" className="form-login-register" id="form-register">
-                <h1>Create Account</h1>
-                <div className="social-container">
-                    <a href="#" className="social-item"><i className="fab fa-facebook-f"></i></a>
-                    <a href="#" className="social-item"><i className="fab fa-google-plus-g"></i></a>
-                    <a href="#" className="social-item"><i className="fab fa-linkedin-in"></i></a>
-                </div>
-                <span>or use your email for registration</span>
-                <input name="name" className="form-input" type="text" placeholder="Name" required />
-                <input name="email" className="form-input" type="email" placeholder="Email" required />
-                <input name="pais" className="form-input" type="text" placeholder="País" required />
-                <input name="edad" className="form-input" type="number" placeholder="Edad" required />
-                <input className="form-input" type="password" placeholder="Password" required />
-                <button className="form-button">Sign Up</button>
-            </form>
+  const [form, setValues] = useState({
+    first_name: '',
+    last_name: '',
+    country: '',
+    city: '',
+    age: '',
+    email: '',
+    password: '',
+  });
+  const handleInput = (event) => {
+    setValues({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axios
+      .post(
+        'https://cohort3apicovid.herokuapp.com/api/auth/sign-up',
+        {
+          withCredentials: true,
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        }, 
+           {
+            first_name: form.first_name,
+            last_name: form.last_name,
+            country: form.country,
+            city: form.city,
+            age: form.age,
+            username: form.email,
+            password: form.password,
+          },
+      )
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log('Error on register');
+      });
+  };
+  return (
+    <div className="form-container sign-up-container">
+      <form
+        action="post"
+        className="form-login-register"
+        id="form-register"
+        onSubmit={handleSubmit}
+      >
+        <h1>Create Account</h1>
+        <div className="social-container">
+          <a href="#" className="social-item">
+            <i className="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" className="social-item">
+            <i className="fab fa-google-plus-g"></i>
+          </a>
+          <a href="#" className="social-item">
+            <i className="fab fa-linkedin-in"></i>
+          </a>
         </div>
-    )
-}
+        <span>or use your email for registration</span>
+        <input
+          name="first_name"
+          onChange={handleInput}
+          className="form-input"
+          type="text"
+          placeholder="Nombres"
+          required
+        />
+        <input
+          name="last_name"
+          onChange={handleInput}
+          className="form-input"
+          type="text"
+          placeholder="Apellidos"
+        />
+        <input
+          name="country"
+          onChange={handleInput}
+          className="form-input"
+          type="text"
+          placeholder="País"
+        />
+        <input
+          name="city"
+          onChange={handleInput}
+          className="form-input"
+          type="text"
+          placeholder="Ciudad"
+        />
+        <input
+          name="age"
+          onChange={handleInput}
+          className="form-input"
+          type="number"
+          placeholder="Edad"
+        />
+        <input
+          name="email"
+          onChange={handleInput}
+          className="form-input"
+          type="email"
+          placeholder="Email"
+          required
+        />
+        <input
+          name="password"
+          className="form-input"
+          onChange={handleInput}
+          type="password"
+          placeholder="Contraseña"
+          required
+        />
+        <button className="form-button">Sign Up</button>
+      </form>
+    </div>
+  );
+};
 
-export default Register
+export default Register;

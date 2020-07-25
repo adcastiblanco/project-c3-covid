@@ -9,7 +9,9 @@
   min-height: 548px;
   margin: 0 auto;
 }
-
+form h1 {
+  margin-bottom: 0;
+}
 .form-login-register {
   background-color: #ffffff;
   display: flex;
@@ -50,8 +52,8 @@ button.ghost {
 .form-input {
   background-color: #eee;
   border: none;
-  padding: 12px 15px;
-  margin: 8px 0;
+  padding: 9px 15px;
+  margin: 5px 0;
   width: 100%;
 }
 
