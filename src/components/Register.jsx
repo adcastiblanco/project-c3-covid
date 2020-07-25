@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios'
 
 const Register = () => {
   const [form, setValues] = useState({
@@ -7,7 +6,7 @@ const Register = () => {
     last_name: '',
     country: '',
     city: '',
-    age: '',
+    years_old: '',
     email: '',
     password: '',
   });
@@ -19,32 +18,15 @@ const Register = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios
-      .post(
-        'https://cohort3apicovid.herokuapp.com/api/auth/sign-up',
-        {
-          withCredentials: true,
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-        }, 
-           {
-            first_name: form.first_name,
-            last_name: form.last_name,
-            country: form.country,
-            city: form.city,
-            age: form.age,
-            username: form.email,
-            password: form.password,
-          },
-      )
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log('Error on register');
-      });
+    console.log(form);
+    fetch('https://cohort3apicovid.herokuapp.com/api/auth/sign-up', {
+      method: 'POST', // or 'PUT'
+      mode: 'cors',
+      body: JSON.stringify(form), // data can be `string` or {object}!
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then((res) => console.log(res));
   };
   return (
     <div className="form-container sign-up-container">
@@ -97,7 +79,7 @@ const Register = () => {
           placeholder="Ciudad"
         />
         <input
-          name="age"
+          name="years_old"
           onChange={handleInput}
           className="form-input"
           type="number"
