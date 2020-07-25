@@ -10,8 +10,8 @@ const Login = () => (
                         <a href="#" className="social-item"><i className="fab fa-linkedin-in"></i></a>
                     </div>
                     <span>or use your account</span>
-                    <input className="form-input" type="email" placeholder="Email" />
-                    <input className="form-input" type="password" placeholder="Password" />
+                    <input required className="form-input" type="email" placeholder="Email" />
+                    <input required className="form-input" type="password" placeholder="Password" />
                     <a href="#">Forgot your password?</a>
                     <button className="form-button">Sign In</button>
                 </form>

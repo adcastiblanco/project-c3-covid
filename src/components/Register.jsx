@@ -10,9 +10,11 @@ const Register = () => (
                 <a href="#" className="social-item"><i className="fab fa-linkedin-in"></i></a>
             </div>
             <span>or use your email for registration</span>
-            <input className="form-input" type="text" placeholder="Name" />
-            <input className="form-input" type="email" placeholder="Email" />
-            <input className="form-input" type="password" placeholder="Password" />
+            <input className="form-input" type="text" placeholder="Name" required />
+            <input className="form-input" type="email" placeholder="Email" required/>
+            <input className="form-input" type="text" placeholder="País" required/>
+            <input className="form-input" type="number" placeholder="Edad" required/>
+            <input className="form-input" type="password" placeholder="Password" required/>
             <button className="form-button">Sign Up</button>
         </form>
     </div>

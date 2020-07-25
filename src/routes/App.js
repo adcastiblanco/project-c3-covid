@@ -11,12 +11,13 @@ import '../assets/styles/globals.scss'
 
 const App = () => (
     <BrowserRouter>
-        {window.location.pathname !== '/login' && <Header />}
         <Switch>
-            <Route exact path="/" component={Home} />
             <Route exact path="/login" component={LoginRegister} />
+            <Layout>
+                <Route exact path="/" component={Home} />
+            </Layout>
         </Switch>
-        {window.location.pathname !== '/login' && <Footer />}
+        
     </BrowserRouter>
 )
 

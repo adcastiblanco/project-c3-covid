@@ -3,3 +3,9 @@ node_modules
 
 # Build 
 /dist
+
+# Firebase
+
+.firebaserc
+firebase.json
+.firebase/
