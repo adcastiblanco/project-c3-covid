@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import '../assets/styles/components/Header.scss'
 
@@ -7,7 +7,7 @@ import logo from '../assets/images/brand.png'
 const Header = () => (
     <header>
         <figure className="logo">
-            <img src={logo} alt="" width="200px"/>
+            <img src={logo} alt="" width="200px" />
         </figure>
         <div className="header">
             <menu className="header-menu">

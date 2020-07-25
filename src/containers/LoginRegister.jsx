@@ -16,7 +16,7 @@ const LoginRegister = () => {
         event.preventDefault()
         container.current.classList.remove("right-panel-active");
     };
-    
+
     return (
         <div className="login-register-container" ref={container}>
             <Login />

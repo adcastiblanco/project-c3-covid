@@ -17,7 +17,7 @@ const App = () => (
                 <Route exact path="/" component={Home} />
             </Layout>
         </Switch>
-        
+
     </BrowserRouter>
 )
 

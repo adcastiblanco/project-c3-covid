@@ -2,7 +2,7 @@ import React from 'react'
 
 const Sidebar = () => {
 
-    return(
+    return (
         <aside className="home-sidebar">
             <div>
                 <h3>Sidebar Category</h3>
@@ -38,5 +38,5 @@ const Sidebar = () => {
             </div>
         </aside>
     )
- }
+}
 export default Sidebar

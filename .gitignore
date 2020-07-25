@@ -5,7 +5,6 @@ node_modules
 /dist
 
 # Firebase
-
 .firebaserc
 firebase.json
 .firebase/
