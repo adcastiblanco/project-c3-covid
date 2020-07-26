@@ -33,9 +33,9 @@ const Login = () => {
       )
       .then(function (response) {
         console.log(response);
-        if(response.status === 200) {
+        if (response.status === 200) {
           localStorage.setItem('username', response.data.user.email);
-          location.href = "/"
+          location.href = '/';
         }
       })
       .catch(function (error) {

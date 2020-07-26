@@ -2,39 +2,39 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
 const Register = () => {
-    const [form, setValues] = useState({
-        first_name: '',
-        last_name: '',
-        country: '',
-        city: '',
-        years_old: '',
-        email: '',
-        password: '',
-      });
-      const handleInput = (event) => {
-        setValues({
-          ...form,
-          [event.target.name]: event.target.value,
-        });
-      };
-      const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(form);
-        fetch('https://cohort3apicovid.herokuapp.com/api/auth/sign-up', {
-          method: 'POST', // or 'PUT'
-          mode: 'cors',
-          body: JSON.stringify(form), // data can be `string` or {object}!
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }).then((res) =>{
-             console.log(res)
-            if(res.status === 201) {
-                alert('Registro exitoso')
-                location.href ="/";
-            }
-            });     
-    };  
+  const [form, setValues] = useState({
+    first_name: '',
+    last_name: '',
+    country: '',
+    city: '',
+    years_old: '',
+    email: '',
+    password: '',
+  });
+  const handleInput = (event) => {
+    setValues({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(form);
+    fetch('https://cohort3apicovid.herokuapp.com/api/auth/sign-up', {
+      method: 'POST', // or 'PUT'
+      mode: 'cors',
+      body: JSON.stringify(form), // data can be `string` or {object}!
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then((res) => {
+      console.log(res);
+      if (res.status === 201) {
+        alert('Registro exitoso');
+        location.href = '/';
+      }
+    });
+  };
   return (
     <div className="form-container sign-up-container">
       <form
