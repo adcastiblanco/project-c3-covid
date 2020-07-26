@@ -17,7 +17,10 @@ const Header = () => (
                     <li className="header-menu__item">Estadisticas</li>
                     <li className="header-menu__item">Perfil</li>
                     <li className="header-menu__item">
-                        <Link to="/login">Iniciar sesión</Link>
+                        {window.localStorage.username !== undefined
+                         ? `Bienvenido ${window.localStorage.username}`
+                         : <Link to="/login">Iniciar Sesión</Link>
+                        }
                     </li>
                 </ul>
             </menu>
