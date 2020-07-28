@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
 
 const Register = () => {
   const [form, setValues] = useState({
@@ -62,6 +61,7 @@ const Register = () => {
           className="form-input"
           type="text"
           placeholder="Nombres"
+          maxLength="50"
           required
         />
         <input
@@ -69,6 +69,7 @@ const Register = () => {
           onChange={handleInput}
           className="form-input"
           type="text"
+          maxLength="50"
           placeholder="Apellidos"
         />
         <input
@@ -76,6 +77,7 @@ const Register = () => {
           onChange={handleInput}
           className="form-input"
           type="text"
+          maxLength="30"
           placeholder="País"
         />
         <input
@@ -83,6 +85,7 @@ const Register = () => {
           onChange={handleInput}
           className="form-input"
           type="text"
+          maxLength="30"
           placeholder="Ciudad"
         />
         <input
@@ -91,6 +94,8 @@ const Register = () => {
           className="form-input"
           type="number"
           placeholder="Edad"
+          min="1"
+          max="99"
         />
         <input
           name="email"
@@ -106,6 +111,7 @@ const Register = () => {
           onChange={handleInput}
           type="password"
           placeholder="Contraseña"
+          minLength="8"
           required
         />
         <button className="form-button">Sign Up</button>
