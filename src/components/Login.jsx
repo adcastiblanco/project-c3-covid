@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import swal from 'sweetalert'
 
 const Login = () => {
   const [form, setValues] = useState({
@@ -32,14 +33,26 @@ const Login = () => {
         }
       )
       .then(function (response) {
-        console.log(response);
         if (response.status === 200) {
+          swal({
+            title: 'Sesión iniciada correctamente',
+            button: false,
+            icon: 'success'
+          })
           localStorage.setItem('username', response.data.user.email);
-          location.href = '/';
+          setTimeout(() => {
+            location.href = '/';
+          }, 1000)
         }
       })
-      .catch(function (error) {
-        console.log('Error on Authentication');
+      .catch(error => {
+        if (error.message === "Request failed with status code 401") {
+          swal({
+            title: 'Email o contraseña incorrectos, intentalo nuevamente',
+            button: 'Entendido',
+            icon: 'error'
+          })
+        }
       });
   };
   return (

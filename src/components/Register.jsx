@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import swal from 'sweetalert'
+import loader from '../assets/images/loader.gif'
 
 const Register = () => {
-  const [form, setValues] = useState({
+  const [form, setForm] = useState({
     first_name: '',
     last_name: '',
     country: '',
@@ -11,14 +12,48 @@ const Register = () => {
     email: '',
     password: '',
   });
-  const handleInput = (event) => {
-    setValues({
+
+  const handleChange = (event) => {
+    let inputElement = event.currentTarget
+    if (event.currentTarget.reportValidity !== true) inputElement.reportValidity()
+    switch (inputElement.name) {
+      case 'first_name':
+        inputElement.onvalid = e => e.target.setCustomValidity('El nombre debe tener minimo 3 letras');
+        break;
+      case 'last_name':
+        inputElement.onvalid = e => e.target.setCustomValidity('El apellido debe tener minimo 3 letras');
+        break;
+      case 'country':
+        inputElement.onvalid = e => e.target.setCustomValidity('El país debe tener minimo 3 letras');
+        break;
+      case 'city':
+        inputElement.onvalid = e => e.target.setCustomValidity('La ciudad debe tener minimo 3 letras');
+        break;
+      case 'years_old':
+        inputElement.onvalid = e => e.target.setCustomValidity('La edad debe ser un valor de entre 1-99');
+        break;
+      case 'password':
+        inputElement.onvalid = e => e.target.setCustomValidity('La contraseña debe ser segura de minimo 8 caracteres');
+        break
+      default:
+
+        break
+    }
+
+    setForm({
       ...form,
       [event.target.name]: event.target.value,
     });
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    swal({
+      title: "Estamos validando tu registro",
+      text: "You clicked the button!",
+      icon: loader,
+      button: false
+    });
     console.log(form);
     fetch('https://cohort3apicovid.herokuapp.com/api/auth/sign-up', {
       method: 'POST', // or 'PUT'
@@ -28,13 +63,31 @@ const Register = () => {
         'Content-Type': 'application/json',
       },
     }).then((res) => {
-      console.log(res);
       if (res.status === 201) {
-        alert('Registro exitoso');
-        location.href = '/';
+        localStorage.setItem('username', form.first_name)
+        console.log(res)
+        swal({
+          title: "Good job!",
+          text: "You clicked the button!",
+          icon: "success",
+          button: false,
+        });
+        // localStorage.setItem('username', )
+        setTimeout(() => {
+          location.href = "/"
+        }, 2000)
       }
-    });
+      else if (res.status === 400) {
+        swal({
+          title: "El email ya se encuentra registrado",
+          text: "Por favor ingresa un email diferente",
+          icon: "warning",
+          button: "¡OK!",
+        });
+      }
+    }).catch((err) => console.log(err))
   };
+
   return (
     <div className="form-container sign-up-container">
       <form
@@ -58,43 +111,53 @@ const Register = () => {
         <span>or use your email for registration</span>
         <input
           name="first_name"
-          onChange={handleInput}
+          onChange={handleChange}
           className="form-input"
           type="text"
           placeholder="Nombres"
+          minLength="3"
+          maxLength="50"
           required
         />
         <input
           name="last_name"
-          onChange={handleInput}
+          onChange={handleChange}
           className="form-input"
           type="text"
+          minLength="3"
+          maxLength="50"
           placeholder="Apellidos"
         />
         <input
           name="country"
-          onChange={handleInput}
+          onChange={handleChange}
           className="form-input"
           type="text"
+          minLength="3"
+          maxLength="30"
           placeholder="País"
         />
         <input
           name="city"
-          onChange={handleInput}
+          onChange={handleChange}
           className="form-input"
           type="text"
+          minLength="3"
+          maxLength="30"
           placeholder="Ciudad"
         />
         <input
           name="years_old"
-          onChange={handleInput}
+          onChange={handleChange}
           className="form-input"
           type="number"
           placeholder="Edad"
+          min="1"
+          max="99"
         />
         <input
           name="email"
-          onChange={handleInput}
+          onChange={handleChange}
           className="form-input"
           type="email"
           placeholder="Email"
@@ -103,9 +166,10 @@ const Register = () => {
         <input
           name="password"
           className="form-input"
-          onChange={handleInput}
+          onChange={handleChange}
           type="password"
           placeholder="Contraseña"
+          minLength="8"
           required
         />
         <button className="form-button">Sign Up</button>
