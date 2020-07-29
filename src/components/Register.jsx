@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import swal from 'sweetalert'
+import loader from '../assets/images/loader.gif'
 
 const Register = () => {
-  const [form, setValues] = useState({
+  const [form, setForm] = useState({
     first_name: '',
     last_name: '',
     country: '',
@@ -13,7 +15,6 @@ const Register = () => {
 
   const handleChange = (event) => {
     let inputElement = event.currentTarget
-
     if (event.currentTarget.reportValidity !== true) inputElement.reportValidity()
     switch (inputElement.name) {
       case 'first_name':
@@ -38,14 +39,21 @@ const Register = () => {
 
         break
     }
-    setValues({
+
+    setForm({
       ...form,
       [event.target.name]: event.target.value,
     });
-    console.log(event.currentTarget.reportValidity())
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    swal({
+      title: "Estamos validando tu registro",
+      text: "You clicked the button!",
+      icon: loader,
+      button: false
+    });
     console.log(form);
     fetch('https://cohort3apicovid.herokuapp.com/api/auth/sign-up', {
       method: 'POST', // or 'PUT'
@@ -55,13 +63,31 @@ const Register = () => {
         'Content-Type': 'application/json',
       },
     }).then((res) => {
-      console.log(res);
       if (res.status === 201) {
-        alert('Registro exitoso');
-        location.href = '/';
+        localStorage.setItem('username', form.first_name)
+        console.log(res)
+        swal({
+          title: "Good job!",
+          text: "You clicked the button!",
+          icon: "success",
+          button: false,
+        });
+        // localStorage.setItem('username', )
+        setTimeout(() => {
+          location.href = "/"
+        }, 2000)
+      }
+      else if (res.status === 400) {
+        swal({
+          title: "El email ya se encuentra registrado",
+          text: "Por favor ingresa un email diferente",
+          icon: "warning",
+          button: "¡OK!",
+        });
       }
     }).catch((err) => console.log(err))
   };
+
   return (
     <div className="form-container sign-up-container">
       <form
