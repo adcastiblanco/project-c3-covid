@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SocialMedia from './SocialMedia';
 
 const Register = () => {
   const [form, setValues] = useState({
@@ -26,7 +27,11 @@ const Register = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-    }).then((res) => console.log(res));
+    }).then((res) => {
+      if (res.status === 201) {
+        props.history('/login');
+      }
+    });
   };
   return (
     <div className="form-container sign-up-container">
@@ -37,17 +42,7 @@ const Register = () => {
         onSubmit={handleSubmit}
       >
         <h1>Create Account</h1>
-        <div className="social-container">
-          <a href="#" className="social-item">
-            <i className="fab fa-facebook-f"></i>
-          </a>
-          <a href="#" className="social-item">
-            <i className="fab fa-google-plus-g"></i>
-          </a>
-          <a href="#" className="social-item">
-            <i className="fab fa-linkedin-in"></i>
-          </a>
-        </div>
+        <SocialMedia />
         <span>or use your email for registration</span>
         <input
           name="first_name"
