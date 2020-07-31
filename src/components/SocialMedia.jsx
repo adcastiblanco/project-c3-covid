@@ -6,19 +6,37 @@ import { googleAuthProvider, facebookAuthProvider } from '../utils/firebase';
 import { SignInSocialMedia } from '../services/AuthServices';
 
 const SocialMedia = () => {
-  //   const [state, setstate] = useState(initialState);
   const handleClickGoogle = () => {
-    SignInSocialMedia(googleAuthProvider).then((response) => {
-      console.log(response);
-      // location.href = '/';
+    SignInSocialMedia(googleAuthProvider).then(async (response) => {
+      await singIn(response);
     });
   };
 
   const handleClickFacebook = () => {
-    SignInSocialMedia(facebookAuthProvider).then((response) => {
-      console.log(response);
-      // location.href = '/';
+    SignInSocialMedia(facebookAuthProvider).then(async (response) => {
+      await singIn(response);
     });
+  };
+
+  const singIn = async (response) => {
+    if (response.code === undefined) {
+      swal({
+        title: 'Sesión iniciada correctamente',
+        button: false,
+        icon: 'success',
+      });
+      localStorage.setItem('username', response.data.username);
+      setTimeout(() => {
+        location.href = '/';
+      }, 1000);
+    } else {
+      swal({
+        title: response.code,
+        text: response.message,
+        icon: 'warning',
+        button: '¡OK!',
+      });
+    }
   };
 
   return (

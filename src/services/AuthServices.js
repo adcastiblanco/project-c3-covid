@@ -1,6 +1,41 @@
 import { firebaseConfig } from '../utils/firebase';
 
 /**
+ * Function that sinig to app with email and password
+ * @param {string} email
+ * @param {string} password
+ */
+export async function SingInEmailPassword(email, password) {
+  try {
+    const res = await firebaseConfig
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((response) => {
+        const data = {
+          code: 'success',
+          message: 'user Auth',
+          data: {
+            username: response.user.displayName,
+            _id: response.user.uid,
+          },
+        };
+        return data;
+      })
+      .catch((error) => {
+        let res = {
+          code: error.code,
+          message: error.message,
+          data: null,
+        };
+        return res;
+      });
+    return res;
+  } catch (error) {
+    return error;
+  }
+}
+
+/**
  * Function that SingIn with social media
  * If the user no existed in the database, this the created
  * @param {*} provider
@@ -38,7 +73,7 @@ export async function SignInSocialMedia(provider) {
 
           /** Register user*/
           try {
-            const user = await Register(data)
+            const user = await RegisterUser(data)
               .then((result) => result.data)
               .catch((error) => error);
             return user;
@@ -49,19 +84,15 @@ export async function SignInSocialMedia(provider) {
 
         return userId;
       })
-      .then(async (data) => {
+      .then(async (userId) => {
         try {
           /** get token*/
-          const token = await getTokenId();
-
-          /**Return object with token and data */
-          const response = {
-            token,
-            data: {
-              username: `${data.first_name} ${data.last_name}`,
-              _id: data._id,
-            },
+          const data = {
+            username: `${userId.first_name} ${userId.last_name}`,
+            _id: userId._id,
           };
+          const response = await getTokenId(data);
+
           return response;
         } catch (error) {
           return error;
@@ -82,7 +113,7 @@ export async function SignInSocialMedia(provider) {
  * @param {Object} data
  * @returns {Response}
  */
-export async function Register(data) {
+export async function RegisterUser(data) {
   try {
     const res = await fetch(`${process.env.URL_API_BACKEND}/auth/sign-up`, {
       method: 'POST', // or 'PUT'
@@ -126,14 +157,64 @@ export async function getUserId(uid) {
 
 /**
  * Function get tokend to firebase Auth
+ * @param {Array} data{username , _id}
  * @returns {string}
  */
-export async function getTokenId() {
+export async function getTokenId(data) {
   try {
     const res = await firebaseConfig
       .auth()
       .currentUser.getIdToken(true)
-      .then((idToken) => idToken);
+      .then((idToken) => {
+        /**Return object with token and data */
+        const response = {
+          token: idToken,
+          data,
+        };
+        return response;
+      });
+
+    return res;
+  } catch (error) {
+    return error;
+  }
+}
+
+/**
+ * Function that created user in Firebase Auth
+ * @param {String} email
+ * @param {String} password
+ * @param {String} displayName
+ * @returns {Object}
+ */
+export async function CreateUser(email, password, displayName) {
+  try {
+    const res = await firebaseConfig
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((response) => {
+        response.user.updateProfile({
+          displayName,
+        });
+
+        let res = {
+          code: 'success',
+          message: 'user created in firebase',
+          data: {
+            uid: response.user.uid,
+            email: response.user.email,
+          },
+        };
+        return res;
+      })
+      .catch((error) => {
+        let res = {
+          code: error.code,
+          message: error.message,
+          data: null,
+        };
+        return res;
+      });
     return res;
   } catch (error) {
     return error;
