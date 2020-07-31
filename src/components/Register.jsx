@@ -3,13 +3,15 @@ import SocialMedia from './SocialMedia';
 import swal from 'sweetalert';
 import loader from '../assets/images/loader.gif';
 
+import { CreateUser, RegisterUser, getTokenId } from '../services/AuthServices';
+
 const Register = () => {
   const [form, setForm] = useState({
     first_name: '',
     last_name: '',
     country: '',
     city: '',
-    years_old: '',
+    years_old: 0,
     email: '',
     password: '',
   });
@@ -55,7 +57,7 @@ const Register = () => {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     swal({
@@ -63,39 +65,54 @@ const Register = () => {
       icon: loader,
       button: false,
     });
-    console.log(form);
-    fetch('https://cohort3apicovid.herokuapp.com/api/auth/sign-up', {
-      method: 'POST', // or 'PUT'
-      mode: 'cors',
-      body: JSON.stringify(form), // data can be `string` or {object}!
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => {
-        if (res.status === 201) {
-          localStorage.setItem('username', form.first_name);
-          console.log(res);
-          swal({
-            title: 'Good job!',
-            text: 'You clicked the button!',
-            icon: 'success',
-            button: false,
-          });
-          // localStorage.setItem('username', )
-          setTimeout(() => {
-            location.href = '/';
-          }, 2000);
-        } else if (res.status === 400) {
-          swal({
-            title: 'El email ya se encuentra registrado',
-            text: 'Por favor ingresa un email diferente',
-            icon: 'warning',
-            button: '¡OK!',
-          });
-        }
-      })
-      .catch((err) => console.log(err));
+
+    const createUser = await CreateUser(
+      form.email,
+      form.password,
+      `${form.first_name} ${form.last_name}`
+    );
+
+    if (createUser.data !== null) {
+      /**User email does not exist, it is register in db*/
+      const registerUser = await RegisterUser({
+        _uid: createUser.data.uid,
+        first_name: form.first_name,
+        last_name: form.last_name,
+        years_old: form.years_old,
+        country: form.country,
+        city: form.city,
+      });
+
+      if (registerUser.status === 201) {
+        /**Get token and singin in the app */
+        const data = {
+          username: `${registerUser.data.first_name} ${registerUser.data.last_name}`,
+          _id: registerUser.data._id,
+        };
+
+        const singIn = await getTokenId(data);
+        swal({
+          title: 'Good job!',
+          text: 'You clicked the button!',
+          icon: 'success',
+          button: false,
+        });
+        //**save username in local storage */
+        localStorage.setItem('username', singIn.data.username);
+        setTimeout(() => {
+          location.href = '/';
+        }, 2000);
+      } else {
+        console.log(registerUser);
+      }
+    } else {
+      swal({
+        title: createUser.code,
+        text: createUser.message,
+        icon: 'warning',
+        button: '¡OK!',
+      });
+    }
   };
 
   return (
