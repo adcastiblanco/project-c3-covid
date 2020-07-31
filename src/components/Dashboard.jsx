@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import RenderAreaChart from './RenderAreaChart'
-import '../assets/styles/components/Dashboard.scss'
 
 const Dashboard = () => {
 	const API = [
