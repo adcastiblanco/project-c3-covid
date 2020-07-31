@@ -1,0 +1,24 @@
+@import '../grids.scss';
+@import '../variables.scss';
+
+.home-sidebar {
+  @include grid-column(1, 2);
+  background-color: #fbfbfb;
+  padding-left: 1em;
+  &__list {
+    padding: 0;
+    list-style: none;
+  }
+  &__item {
+    margin-bottom: 1em;
+    & a {
+      text-decoration: none;
+      color: $dark-color-C3;
+      font-size: 1.2em;
+      font-weight: bold;
+      &:hover {
+        color: $cian-color-C3;
+      }
+    }
+  }
+}

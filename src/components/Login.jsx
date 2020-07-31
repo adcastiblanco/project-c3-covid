@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import swal from 'sweetalert'
+import loader from '../assets/images/loader.gif'
 
 const Login = () => {
   const [form, setValues] = useState({
@@ -15,6 +16,11 @@ const Login = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
+    swal({
+      title: "Estamos validando tus datos",
+      icon: loader,
+      button: false
+    });
     axios
       .post(
         'https://cohort3apicovid.herokuapp.com/api/auth/sign-in',

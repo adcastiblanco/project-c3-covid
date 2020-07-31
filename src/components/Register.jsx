@@ -50,7 +50,6 @@ const Register = () => {
     event.preventDefault();
     swal({
       title: "Estamos validando tu registro",
-      text: "You clicked the button!",
       icon: loader,
       button: false
     });

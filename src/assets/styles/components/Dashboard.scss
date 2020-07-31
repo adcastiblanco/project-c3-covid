@@ -6,5 +6,8 @@
 }
 
 .home-mainStatistics__item {
-  @include grid-template-columns(1);
+  background-color: #fbfbfb;
+  margin: 1em;
+  height: 200px;
+  border-radius: 5px;
 }
