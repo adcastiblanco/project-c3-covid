@@ -1,28 +1,52 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import '../assets/styles/components/Header.scss'
+import '../assets/styles/components/Header.scss';
 
-import logo from '../assets/images/brand.png'
-const Header = () => (
+import logo from '../assets/images/brand.png';
+const Header = () => {
+  const session = () => {
+    let username = window.localStorage.username
+    if (username !== undefined) {
+      return (
+        <>
+          <li className="header-menu__item">
+            <p>Bienvenido <span>{username}</span></p>
+          </li>
+          <li className="header-menu__item">
+            <Link to="/login" onClick={() => window.localStorage.clear()}>Cerrar sesión</Link>
+          </li>
+        </>
+      )
+    }
+    else {
+      return (
+        <li className="header-menu__item">
+          <Link to="/login">Iniciar Sesión</Link>
+        </li>
+      )
+    }
+  }
+  return (
     <header>
-        <figure className="logo">
-            <img src={logo} alt="" width="200px" />
-        </figure>
-        <div className="header">
-            <menu className="header-menu">
-                <ul className="header-menu__list">
-                    <li className="header-menu__item">Inicio</li>
-                    <li className="header-menu__item">Covid</li>
-                    <li className="header-menu__item">Estadisticas</li>
-                    <li className="header-menu__item">Perfil</li>
-                    <li className="header-menu__item">
-                        <Link to="/login">Iniciar sesión</Link>
-                    </li>
-                </ul>
-            </menu>
-        </div>
+      <figure className="logo">
+        <img src={logo} alt="" />
+      </figure>
+      <div className="header">
+        <menu className="header-menu">
+          <ul className="header-menu__list">
+            <li className="header-menu__item">
+              <Link to="/">Inicio</Link>
+            </li>
+            <li className="header-menu__item">
+              <Link to="/">Perfil</Link>
+            </li>
+            {session()}
+          </ul>
+        </menu>
+      </div>
     </header>
-)
+  )
+};
 
-export default Header
+export default Header;

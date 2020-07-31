@@ -4,8 +4,8 @@ import '../assets/styles/components/Footer.scss'
 
 const Footer = () => (
     <footer>
-        <p>Platzi Master</p>
-        <p>Cohort 3</p>
+        <p className="platzi-master">Platzi Master</p>
+        <p className="cohort">Cohort 3</p>
     </footer>
 )
 

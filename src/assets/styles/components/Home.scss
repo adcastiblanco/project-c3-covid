@@ -1,19 +1,15 @@
 @import '../grids.scss';
+@import '../variables.scss';
 
 .home {
   width: 100%;
-  height: 100%;
+  height: 80%;
   margin: 0 auto;
   @include display-grid;
-  @include grid-template-columns(1fr grid-repeat(3));
-}
-
-.home-sidebar {
-  @include grid-column(1, 2);
-  background-color: gray;
+  @include grid-template-columns(1fr grid-repeat(4));
 }
 
 .home-dashboard {
-  @include grid-column(2, 5);
-  background-color: lightgray;
+  @include grid-column(2, 6);
+  background-color: $gray-color-C3;
 }

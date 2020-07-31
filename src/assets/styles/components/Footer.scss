@@ -1,4 +1,21 @@
+@import '../grids.scss';
+@import '../variables.scss';
+
 footer {
-  display: flex;
+  @include display-grid;
+  @include grid-template-columns(1fr grid-repeat(4));
   justify-content: space-around;
+  color: $dark-color-C3;
+  height: 8%;
+  .platzi-master {
+    background-color: #fbfbfb;
+    margin: 0;
+  }
+  .cohort {
+    @include grid-column(2, 6);
+    height: 100%;
+    margin: 0;
+    background-color: $gray-color-C3;
+    text-align: right;
+  }
 }

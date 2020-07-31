@@ -13,8 +13,8 @@ const Dashboard = () => {
         <main className="home-dashboard">
             <section className="home-mainStatistics">
                 <div className="home-mainStatistics__item">Casos existentes</div>
-                <div className="home-mainStatistics__item">Recuperados</div>
-                <div className="home-mainStatistics__item">Muertes</div>
+                <div className="home-mainStatistics__item">Recuperados: {statisticsCovid.TotalRecovered}</div>
+                <div className="home-mainStatistics__item">Muertes: {statisticsCovid.TotalDeaths}</div>
                 <div className="home-mainStatistics__item">Total: {statisticsCovid.TotalConfirmed}</div>
             </section>
         </main>
