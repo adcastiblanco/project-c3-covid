@@ -1,27 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FaGooglePlusG, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 
-import { googleAuthProvider } from '../utils/firebase';
+import { googleAuthProvider, facebookAuthProvider } from '../utils/firebase';
 
-import { SignInSocialMedia, VerifyTokenId } from '../services/AuthServices';
+import { SignInSocialMedia } from '../services/AuthServices';
 
-const SocialMedia = (props) => {
+const SocialMedia = () => {
   //   const [state, setstate] = useState(initialState);
-  const handleClick = (socialMedia) => {
-    if (socialMedia === 'google') {
-      SignInSocialMedia(googleAuthProvider).then((response) => {
-        console.log(response);
-        props.history('/');
-      });
-    }
+  const handleClickGoogle = () => {
+    SignInSocialMedia(googleAuthProvider).then((response) => {
+      console.log(response);
+      // location.href = '/';
+    });
+  };
+
+  const handleClickFacebook = () => {
+    SignInSocialMedia(facebookAuthProvider).then((response) => {
+      console.log(response);
+      // location.href = '/';
+    });
   };
 
   return (
     <div className="social-container">
-      <a href="#" className="social-item">
+      <a href="#" className="social-item" onClick={handleClickFacebook}>
         <FaFacebookF />
       </a>
-      <a href="#" className="social-item" onClick={() => handleClick('google')}>
+      <a href="#" className="social-item" onClick={handleClickGoogle}>
         <FaGooglePlusG />
       </a>
       <a href="#" className="social-item">

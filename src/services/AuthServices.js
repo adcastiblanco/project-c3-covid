@@ -1,22 +1,40 @@
 import { firebaseConfig } from '../utils/firebase';
 
+/**
+ * Function that SingIn with social media
+ * If the user no existed in the database, this the created
+ * @param {*} provider
+ * @returns {data}
+ */
 export async function SignInSocialMedia(provider) {
   try {
     const res = await firebaseConfig
       .auth()
       .signInWithPopup(provider)
       .then(async (response) => {
+        let data = {};
+
         const userId = await getUserId(response.user.uid)
           .then((data) => data.data)
           .catch((err) => err);
 
         if (userId === null) {
           /**User not exist in the db **/
-          const data = {
-            _uid: response.user.uid,
-            first_name: response.additionalUserInfo.profile.given_name,
-            last_name: response.additionalUserInfo.profile.family_name,
-          };
+          if (response.additionalUserInfo.providerId === 'google.com') {
+            data = {
+              _uid: response.user.uid,
+              first_name: response.additionalUserInfo.profile.given_name,
+              last_name: response.additionalUserInfo.profile.family_name,
+            };
+          } else if (
+            response.additionalUserInfo.providerId === 'facebook.com'
+          ) {
+            data = {
+              _uid: response.user.uid,
+              first_name: `${response.additionalUserInfo.profile.first_name} ${response.additionalUserInfo.profile.middle_name}`,
+              last_name: response.additionalUserInfo.profile.last_name,
+            };
+          }
 
           /** Register user*/
           try {
