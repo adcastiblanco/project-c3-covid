@@ -16,5 +16,5 @@ const RenderAreaChart = ({data}) => {
     </ResponsiveContainer>
   )
 }
-data={data}
+
 export default RenderAreaChart;
