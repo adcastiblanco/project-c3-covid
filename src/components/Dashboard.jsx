@@ -4,7 +4,7 @@ import RenderAreaChart from './RenderAreaChart'
 const Dashboard = () => {
 	const API = [
 		{
-			label: 'Page A', value: 4000, pv: 2400, amt: 2400,
+			label: 'Muertes', value: 4000, pv: 2400, amt: 2400,
 		},
 		{
 			label: 'Page B', value: 3000, pv: 1398, amt: 2210,
