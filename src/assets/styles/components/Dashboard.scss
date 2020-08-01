@@ -1,5 +1,3 @@
-@import '../grids.scss';
-
 .home-mainStatistics {
   @include display-grid;
   @include grid-template-columns(1fr grid-repeat(3));
