@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import RenderAreaChart from './RenderAreaChart'
+import RenderStackedBarChart from './RenderStackedBarChart';
 
 const Dashboard = () => {
 	const API = [
@@ -43,6 +44,10 @@ const Dashboard = () => {
 			<div className='graphContainer'>
 				<h3>Confirmados y Muertes</h3>
 				<RenderAreaChart className='graph' data = {API}/>
+			</div>
+			<div className='graphContainer2'>
+				<h3>Confirmados y Muertes</h3>
+				<RenderStackedBarChart className='graph' data = {API} />
 			</div>
 		</section>
   )
