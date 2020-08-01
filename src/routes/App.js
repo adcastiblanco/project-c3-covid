@@ -5,7 +5,6 @@ import Layout from '../containers/Layout'
 import Home from '../containers/Home'
 import LoginRegister from '../containers/LoginRegister'
 
-import '../assets/styles/globals.scss'
 
 
 
