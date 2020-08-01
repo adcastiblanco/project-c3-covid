@@ -1,3 +1,5 @@
+@import '../breakpoints.scss';
+
 .login-register-container {
   height: 100%;
   width: 100%;
@@ -12,11 +14,18 @@
   position: relative;
   overflow: hidden;
   min-width: 60%;
-  min-height: 90%;
+  min-height: 95%;
+  @include media(mobile-only) {
+    width: 80%;
+  }
+  h1 {
+    font-size: 1.5em;
+  }
 }
 
 form h1 {
   margin-bottom: 0;
+  font-size: 1.5em;
 }
 .form-login-register {
   background-color: #ffffff;
@@ -27,7 +36,11 @@ form h1 {
   padding: 0 50px;
   height: 100%;
   text-align: center;
-}
+  @include media(mobile-only) {
+    padding: 0 20px;
+    justify-content: normal;
+  }
+  }
 
 .form-button {
   border-radius: 20px;
@@ -41,6 +54,9 @@ form h1 {
   text-transform: uppercase;
   margin-top: 8%;
   transition: transform 80ms ease-in;
+  @include media(mobile-only) {
+    padding: 12px 41px;
+  }
 }
 
 .form-button:active {
@@ -62,6 +78,9 @@ button.ghost {
   padding: 9px 15px;
   margin: 5px 0;
   width: 100%;
+  @include media(mobile-only) {
+    width: 70%;
+  }
 }
 
 .form-container {
@@ -75,6 +94,9 @@ button.ghost {
   left: 0;
   width: 50%;
   z-index: 2;
+  @include media(mobile-only) {
+    width: 100%;
+  }
 }
 
 .login-register-container.right-panel-active .sign-in-container {
@@ -86,6 +108,10 @@ button.ghost {
   width: 50%;
   opacity: 0;
   z-index: 1;
+  @include media(mobile-only) {
+    transform: translateX(100%);
+    width: 100%;
+  }
 }
 
 .login-register-container.right-panel-active .sign-up-container {
@@ -93,6 +119,9 @@ button.ghost {
   opacity: 1;
   z-index: 5;
   animation: show 0.6s;
+  @include media(mobile-only) {
+    transform: translateX(0%);
+  }
 }
 
 @keyframes show {
@@ -118,6 +147,9 @@ button.ghost {
   overflow: hidden;
   transition: transform 0.6s ease-in-out;
   z-index: 100;
+  @include media(mobile-only) {
+    display: none;
+  }
 }
 
 .login-register-container.right-panel-active .overlay-container {
@@ -139,6 +171,8 @@ button.ghost {
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
 }
+
+
 
 .login-register-container.right-panel-active .overlay {
   transform: translateX(50%);
@@ -173,6 +207,32 @@ button.ghost {
 
 .login-register-container.right-panel-active .overlay-right {
   transform: translateX(20%);
+}
+
+.register-panel,
+.login-panel{
+  display: none;
+  padding: 0.7em;
+  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  color: white;
+  @include media(mobile-only) {
+    display: block;
+  }
+  h3 {
+    margin: 0 0 10px;
+    text-align: center;
+  }
+  .overlay-button {
+    display: none;
+    @include media(mobile-only) {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+
+.register-panel {
+  background: linear-gradient(to left, #ff4b2b, #ff416c);
 }
 
 .social-container {
