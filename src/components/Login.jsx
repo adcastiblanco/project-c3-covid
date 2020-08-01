@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import swal from 'sweetalert'
-import loader from '../assets/images/loader.gif'
+import SocialMedia from './SocialMedia';
+import swal from 'sweetalert';
+import loader from '../assets/images/loader.gif';
+
+import { SingInEmailPassword, getTokenId } from '../services/AuthServices';
 
 const Login = React.forwardRef((props, ref) => {
   const [form, setValues] = useState({
@@ -19,52 +21,37 @@ const Login = React.forwardRef((props, ref) => {
       [event.target.name]: event.target.value,
     });
   };
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     swal({
-      title: "Estamos validando tus datos",
+      title: 'Estamos validando tus datos',
       icon: loader,
-      button: false
+      button: false,
     });
-    axios
-      .post(
-        'https://cohort3apicovid.herokuapp.com/api/auth/sign-in',
-        {
-          withCredentials: true,
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-        },
-        {
-          auth: {
-            username: form.email,
-            password: form.password,
-          },
-        }
-      )
-      .then(function (response) {
-        if (response.status === 200) {
-          swal({
-            title: 'Sesión iniciada correctamente',
-            button: false,
-            icon: 'success'
-          })
-          localStorage.setItem('username', response.data.user.email);
-          setTimeout(() => {
-            location.href = '/';
-          }, 1000)
-        }
-      })
-      .catch(error => {
-        if (error.message === "Request failed with status code 401") {
-          swal({
-            title: 'Email o contraseña incorrectos, intentalo nuevamente',
-            button: 'Entendido',
-            icon: 'error'
-          })
-        }
+
+    const singIn = await SingInEmailPassword(form.email, form.password);
+    if (singIn.data !== null) {
+      const response = await getTokenId(singIn.data);
+      swal({
+        title: 'Good job!',
+        text: 'You clicked the button!',
+        icon: 'success',
+        button: false,
       });
+
+      //**save username in local storage */
+      localStorage.setItem('username', response.data.username);
+      setTimeout(() => {
+        location.href = '/';
+      }, 2000);
+    } else {
+      swal({
+        title: singIn.code,
+        text: singIn.message,
+        icon: 'warning',
+        button: '¡OK!',
+      });
+    }
   };
   return (
     <div className="form-container sign-in-container">
@@ -74,14 +61,7 @@ const Login = React.forwardRef((props, ref) => {
       </div>
       <form action="#" className="form-login-register" onSubmit={handleSubmit}>
         <h1>Sign in</h1>
-        <div className="social-container">
-          <a href="#" className="social-item">
-            <i className="fab fa-facebook-f"></i>
-          </a>
-          <a href="#" className="social-item">
-            <i className="fab fa-google-plus-g"></i>
-          </a>
-        </div>
+        <SocialMedia />
         <span>or use your account</span>
         <input
           required
