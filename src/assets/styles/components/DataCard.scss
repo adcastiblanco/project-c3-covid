@@ -1,0 +1,17 @@
+.container{
+  height: 100%;
+  width: 100%;
+  background: $ligth-background;
+  .title h1{
+    height: 20%;
+    width: 100%;
+    @include font-size(15px);
+    color: $black-color;
+    text-align: center;
+  }
+  .graph {
+    height: 80%;
+    width: 80%;
+    margin: 0 auto;
+  }
+}

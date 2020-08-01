@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import RenderAreaChart from './RenderAreaChart'
+import DataCard from './DataCard';
+import RenderAreaChart from './RenderAreaChart';
 import RenderStackedBarChart from './RenderStackedBarChart';
 import Label from './Label';
 
@@ -51,12 +52,10 @@ const Dashboard = () => {
 				<Label title= "Recuperados" data='7362' color= 'green' />
 			</div>
 			<div className='graphContainer'>
-				<h3>Confirmados y Muertes</h3>
-				<RenderAreaChart className='graph' data = {API}/>
+				<DataCard title='Casos y Muertes' graph={<RenderAreaChart data={API}/>}/>
 			</div>
 			<div className='graphContainer2'>
-				<h3>Confirmados y Muertes</h3>
-				<RenderStackedBarChart className='graph' data = {API} />
+				<DataCard title='Casos Hombres y Muejeres' graph={<RenderStackedBarChart data = {API}/>} />
 			</div>
 		</section>
   )
