@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import {
   ResponsiveContainer ,AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
 } from 'recharts';

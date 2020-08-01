@@ -1,0 +1,23 @@
+.Label{
+  border-radius: 5px;
+  background-color: $white-color;
+  padding: 5px;
+  box-sizing: border-box;
+  border: solid 1px $primary-color;
+  border-left: solid 5px $primary-color;
+  h4, h5, h6 {
+    margin: 0;
+  }
+  h5{
+    @include font-size(12px);
+    color: $primary-color;
+  }
+  h4{
+    @include font-size(15px);
+    color: $black-color;
+  }
+  h6{
+    @include font-size(10px);
+    color: #5a5c69
+  }
+}

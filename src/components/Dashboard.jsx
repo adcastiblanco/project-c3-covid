@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import RenderAreaChart from './RenderAreaChart'
 import RenderStackedBarChart from './RenderStackedBarChart';
+import Label from './Label';
 
 const Dashboard = () => {
 	const API = [
@@ -37,10 +38,18 @@ const Dashboard = () => {
 
   return (
     <section className='dashboard'>
-      <div className='item'>Casos existentes</div>
-      <div className='item'>Recuperados: {statisticsCovid.TotalRecovered}</div>
-      <div className='item'>Muertes: {statisticsCovid.TotalDeaths}</div>
-      <div className='item'>Total: {statisticsCovid.TotalConfirmed}</div>
+      <div className='item'>
+				<Label title='Confirmados' data='450505' color= 'red'/>
+			</div>
+      <div className='item'>
+				<Label title= "Defunciones" data='568326' color= 'black'/>
+			</div>
+      <div className='item'>
+				<Label title= "Observación" data='234583' color= 'yellow' />
+			</div>
+      <div className='item'>
+				<Label title= "Recuperados" data='7362' color= 'green' />
+			</div>
 			<div className='graphContainer'>
 				<h3>Confirmados y Muertes</h3>
 				<RenderAreaChart className='graph' data = {API}/>

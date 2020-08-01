@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans&display=swap');
-@import './grids.scss';
+
+@function calculateRem($size){
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size){
+  font-size: calculateRem($size);
+  line-height: calculateRem($size)*1.5;
+}
 
 html {
   height: 100%;
