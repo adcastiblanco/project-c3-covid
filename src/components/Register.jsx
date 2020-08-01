@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import swal from 'sweetalert'
 import loader from '../assets/images/loader.gif'
 
-const Register = () => {
+const Register = React.forwardRef((props, ref) => {
   const [form, setForm] = useState({
     first_name: '',
     last_name: '',
@@ -12,7 +12,10 @@ const Register = () => {
     email: '',
     password: '',
   });
-
+  let removePanel = (event) => {
+    event.preventDefault()
+    ref.current.classList.remove("right-panel-active");
+  };
   const handleChange = (event) => {
     let inputElement = event.currentTarget
     if (event.currentTarget.reportValidity !== true) inputElement.reportValidity()
@@ -89,6 +92,10 @@ const Register = () => {
 
   return (
     <div className="form-container sign-up-container">
+      <div className="login-panel">
+        <h3>¿Ya tienes una cuenta creada?</h3>
+        <button className="form-button overlay-button ghost" id="signUp" onClick={removePanel}>Sign In</button>
+      </div>
       <form
         action="post"
         className="form-login-register"
@@ -102,9 +109,6 @@ const Register = () => {
           </a>
           <a href="#" className="social-item">
             <i className="fab fa-google-plus-g"></i>
-          </a>
-          <a href="#" className="social-item">
-            <i className="fab fa-linkedin-in"></i>
           </a>
         </div>
         <span>or use your email for registration</span>
@@ -175,6 +179,6 @@ const Register = () => {
       </form>
     </div>
   );
-};
+});
 
 export default Register;

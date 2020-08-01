@@ -5,7 +5,7 @@ import '../assets/styles/components/Dashboard.scss'
 const Dashboard = () => {
 	const API = [
 		{
-			label: 'Page A', value: 4000, pv: 2400, amt: 2400,
+			label: 'Muertes', value: 4000, pv: 2400, amt: 2400,
 		},
 		{
 			label: 'Page B', value: 3000, pv: 1398, amt: 2210,
@@ -38,12 +38,12 @@ const Dashboard = () => {
   return (
       <main className="home-dashboard">
           <section className="home-mainStatistics">
-              <div className="home-mainStatistics__item">Casos existentes</div>
+              <div className="home-mainStatistics__item"></div>
               <div className="home-mainStatistics__item">Recuperados: {statisticsCovid.TotalRecovered}</div>
               <div className="home-mainStatistics__item">Muertes: {statisticsCovid.TotalDeaths}</div>
               <div className="home-mainStatistics__item">Total: {statisticsCovid.TotalConfirmed}</div>
-							<RenderAreaChart data = {API}/>
-					</section>
+			  <RenderAreaChart data = {API}/>
+          </section>
       </main>
   )
 }
