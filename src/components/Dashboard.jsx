@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import RenderAreaChart from './RenderAreaChart'
-import '../assets/styles/components/Dashboard.scss'
 
 const Dashboard = () => {
 	const API = [
 		{
-			label: 'Page A', value: 4000, pv: 2400, amt: 2400,
+			label: 'Muertes', value: 4000, pv: 2400, amt: 2400,
 		},
 		{
 			label: 'Page B', value: 3000, pv: 1398, amt: 2210,
@@ -36,15 +35,16 @@ const Dashboard = () => {
   }, [])
 
   return (
-      <main className="home-dashboard">
-          <section className="home-mainStatistics">
-              <div className="home-mainStatistics__item">Casos existentes</div>
-              <div className="home-mainStatistics__item">Recuperados: {statisticsCovid.TotalRecovered}</div>
-              <div className="home-mainStatistics__item">Muertes: {statisticsCovid.TotalDeaths}</div>
-              <div className="home-mainStatistics__item">Total: {statisticsCovid.TotalConfirmed}</div>
-							<RenderAreaChart data = {API}/>
-					</section>
-      </main>
+    <section className='dashboard'>
+      <div className='item'>Casos existentes</div>
+      <div className='item'>Recuperados: {statisticsCovid.TotalRecovered}</div>
+      <div className='item'>Muertes: {statisticsCovid.TotalDeaths}</div>
+      <div className='item'>Total: {statisticsCovid.TotalConfirmed}</div>
+			<div className='graphContainer'>
+				<h3>Confirmados y Muertes</h3>
+				<RenderAreaChart className='graph' data = {API}/>
+			</div>
+		</section>
   )
 }
 

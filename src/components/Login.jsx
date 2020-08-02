@@ -5,11 +5,16 @@ import loader from '../assets/images/loader.gif';
 
 import { SingInEmailPassword, getTokenId } from '../services/AuthServices';
 
-const Login = () => {
+const Login = React.forwardRef((props, ref) => {
   const [form, setValues] = useState({
     email: '',
     password: '',
   });
+
+  let addPanel = (event) => {
+    event.preventDefault()
+    ref.current.classList.add("right-panel-active");
+  }
   const handleInput = (event) => {
     setValues({
       ...form,
@@ -50,6 +55,10 @@ const Login = () => {
   };
   return (
     <div className="form-container sign-in-container">
+      <div className="register-panel">
+        <h3>¿Aún no tienes una cuenta?</h3>
+        <button className="form-button overlay-button ghost" id="signIn" onClick={addPanel}>Sign Up</button>
+      </div>
       <form action="#" className="form-login-register" onSubmit={handleSubmit}>
         <h1>Sign in</h1>
         <SocialMedia />
@@ -77,6 +86,6 @@ const Login = () => {
       </form>
     </div>
   );
-};
+});
 
 export default Login;

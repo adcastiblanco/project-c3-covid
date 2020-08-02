@@ -5,14 +5,22 @@ footer {
   @include display-grid;
   @include grid-template-columns(1fr grid-repeat(4));
   justify-content: space-around;
-  color: $dark-color-C3;
+  color: #483c7c;
   height: 8%;
+  font-weight: bold;
+  font-size: 1em;
+  span {
+    color: #98ca3f
+  }
   .platzi-master {
     background-color: #fbfbfb;
     margin: 0;
+    text-align: center;
   }
   .cohort {
     @include grid-column(2, 6);
+  padding-right: 1em;
+    color: $dark-color-C3;
     height: 100%;
     margin: 0;
     background-color: $gray-color-C3;
