@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans&display=swap');
-@import './grids.scss';
 
 html {
   height: 100%;
@@ -10,6 +9,17 @@ html {
     font-family: 'Open Sans', sans-serif;
     #root {
       height: 100%;
+
+      .app {
+        display: grid;
+        grid-template-areas:
+          'head head head head'
+          'side content content content'
+          'side footer footer footer';
+        grid-template-rows: 55px 1fr 45px;
+        height: 100%;
+        background-color: #eaeaea;
+      }
     }
   }
 }

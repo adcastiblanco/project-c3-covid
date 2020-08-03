@@ -4,7 +4,6 @@ import Dashboard from '../components/Dashboard'
 
 const Home = () => (
     <div className="home">
-        <Sidebar />
         <Dashboard />
     </div>
 )

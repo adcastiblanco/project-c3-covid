@@ -26,26 +26,26 @@ const Dashboard = () => {
 		},
 	];
 
-  const [statisticsCovid, setStatisticsCovid] = useState({})
+	const [statisticsCovid, setStatisticsCovid] = useState({})
 
 	useEffect(() => {
-      window.fetch('https://api.covid19api.com/world/total')
-          .then(response => response.json())
-          .then(data => setStatisticsCovid(data))
-  }, [])
+		window.fetch('https://api.covid19api.com/world/total')
+			.then(response => response.json())
+			.then(data => setStatisticsCovid(data))
+	}, [])
 
-  return (
-    <section className='dashboard'>
-      <div className='item'>Casos existentes</div>
-      <div className='item'>Recuperados: {statisticsCovid.TotalRecovered}</div>
-      <div className='item'>Muertes: {statisticsCovid.TotalDeaths}</div>
-      <div className='item'>Total: {statisticsCovid.TotalConfirmed}</div>
+	return (
+		<section className='dashboard'>
+			<div className='item'>Casos existentes</div>
+			<div className='item'>Recuperados: {statisticsCovid.TotalRecovered}</div>
+			<div className='item'>Muertes: {statisticsCovid.TotalDeaths}</div>
+			<div className='item'>Total: {statisticsCovid.TotalConfirmed}</div>
 			<div className='graphContainer'>
 				<h3>Confirmados y Muertes</h3>
-				<RenderAreaChart className='graph' data = {API}/>
+				<RenderAreaChart className='graph' data={API} />
 			</div>
 		</section>
-  )
+	)
 }
 
 export default Dashboard;

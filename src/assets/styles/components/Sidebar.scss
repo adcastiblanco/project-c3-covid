@@ -1,7 +1,6 @@
 .home-sidebar {
-  @include grid-column(1, 2);
-  background-color: $primary-color;
-  width: 100%;
+  background: #fbfbfb;
+  grid-area: side;
   &__list {
     padding: 0;
     width: 80%;
@@ -22,6 +21,16 @@
       &:hover {
         color: $cian-color-C3;
       }
+    }
+  }
+  .platzi-master {
+    margin: 0;
+    text-align: center;
+    color: $dark-color-C3;
+    font-weight: bold;
+    font-size: 1em;
+    span {
+      color: #98ca3f;
     }
   }
 }
