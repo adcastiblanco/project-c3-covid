@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Label = ({title ,data }) => {
-  return(
+const Label = ({ title, data }) => {
+  return (
     <>
       <div className='Label'>
         <h5>{title}</h5>
@@ -9,7 +9,7 @@ const Label = ({title ,data }) => {
         <h6>acumulados</h6>
       </div>
     </>
-  )
+  );
 };
 
 export default Label;

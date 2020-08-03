@@ -4,7 +4,7 @@
   background-color: $ligth-background;
   @include display-grid;
   @include grid-template-columns(1fr grid-repeat(3));
-  @include grid-template-rows(10% 10% 80%);
+  @include grid-template-rows(15% 15% 70%);
   .item {
     display: flex;
     justify-content: center;
