@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans&display=swap');
 
-@function calculateRem($size){
+@function calculateRem($size) {
   $remSize: $size / 16px;
   @return $remSize * 1rem;
 }
 
-@mixin font-size($size){
+@mixin font-size($size) {
   font-size: calculateRem($size);
-  line-height: calculateRem($size)*1.5;
+  line-height: calculateRem($size) * 1.5;
 }
 
 html {
@@ -19,6 +19,18 @@ html {
     font-family: 'Open Sans', sans-serif;
     #root {
       height: 100%;
+
+      .app {
+        display: grid;
+        grid-template-areas:
+          'head head head head head'
+          'side content content content content'
+          'side footer footer footer footer';
+        grid-template-rows: 55px 1fr 35px;
+        grid-gap: 0 1.4%;
+        height: 100%;
+        background-color: #eaeaea;
+      }
     }
   }
 }
@@ -40,4 +52,8 @@ li {
 
 figure {
   margin: 0;
+}
+
+.content-container {
+  grid-area: content;
 }

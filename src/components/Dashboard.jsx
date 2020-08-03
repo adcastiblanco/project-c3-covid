@@ -54,12 +54,12 @@ const Dashboard = () => {
       <div className='item'>
         <Label title='Recuperados' data={data.lastone.Recovered} color='green' />
       </div>
-      <div className='graphContainer'>
+      <div className='graphContainer one'>
         <DataCard title='Casos y Muertes'>
           <RenderAreaChart data={data.info} />
         </DataCard>
       </div>
-      <div className='graphContainer2'>
+      <div className='graphContainer two'>
         <DataCard title='Casos Hombres y Muejeres'>
           <RenderStackedBarChart data={API} />
         </DataCard>
