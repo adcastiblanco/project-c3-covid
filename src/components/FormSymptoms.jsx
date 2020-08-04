@@ -9,7 +9,9 @@ const FormSymptoms = () => {
       <div className="symptoms-container">
         <form>
           <div className="contact-other">
-            <p className="contact-other__question">¿Has estado en contacto estrecho (cercano), sin usar elementos de protección, por más de 15 minutos con una persona con diagnóstico confirmado de COVID-19? o ¿has estado compartiendo el mismo lugar por más de 120 minutos con una persona con diagnóstico confirmado de COVID-19?</p>
+            <p className="contact-other__question">¿Ha estado a menos de 6 pies de una persona con un caso de COVID-19
+            confirmado por laboratorio durante al menos 5 minutos, o ha tenido
+contacto directo con su moco o saliva, en los últimos 14 días?</p>
             <div className="contact-other__answer">
               <div>
                 <input type="radio" id="yes" name="contact-other" value="yes" />
