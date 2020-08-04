@@ -6,7 +6,7 @@ const Sidebar = () => {
         <aside className="home-sidebar">
             <ul className="home-sidebar__list">
                 <li className="home-sidebar__item">
-                    <Link to="/">Registrar sintomas</Link>
+                    <Link to="/RegisterSymptoms">Registrar sintomas</Link>
                 </li>
                 <li className="home-sidebar__item">
                     <Link to="/">Estadisticas</Link>
@@ -21,6 +21,7 @@ const Sidebar = () => {
                     <Link to="/">Acerca de nosotros</Link>
                 </li>
             </ul>
+            <p className="platzi-master"><span>Platzi</span>Master</p>
         </aside>
     )
 }

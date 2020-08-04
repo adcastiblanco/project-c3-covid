@@ -3,8 +3,7 @@ import Sidebar from '../components/Sidebar'
 import Dashboard from '../components/Dashboard'
 
 const Home = () => (
-    <div className="home">
-        <Sidebar />
+    <div className="content-container">
         <Dashboard />
     </div>
 )
