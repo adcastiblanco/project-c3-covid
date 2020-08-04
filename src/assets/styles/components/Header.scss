@@ -15,6 +15,9 @@ header {
   align-items: center;
   justify-content: center;
   width: 100%;
+  & a {
+    text-align: center;
+  }
   & img {
     width: 80%;
   }
@@ -40,7 +43,7 @@ header {
       align-items: center;
       color: white;
       & span {
-        color: $redlight-color-C3;
+        color: $primary-color;
       }
       & a {
         color: white;

@@ -30,7 +30,9 @@ const Header = () => {
   return (
     <header>
       <figure className="logo">
-        <img src={logo} alt="" />
+        <Link to="/">
+          <img src={logo} alt="" />
+        </Link>
       </figure>
       <div className="header">
         <menu className="header-menu">

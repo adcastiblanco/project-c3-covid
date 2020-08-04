@@ -60,7 +60,7 @@ const Dashboard = () => {
         </DataCard>
       </div>
       <div className='graphContainer two'>
-        <DataCard title='Casos Hombres y Muejeres'>
+        <DataCard title='Casos Hombres y Mujeres'>
           <RenderStackedBarChart data={API} />
         </DataCard>
       </div>

@@ -4,7 +4,7 @@ const DataCard = ({ title, children }) => {
   return (
     <div className='container'>
       <div className='title'>
-        <h1>{title}</h1>
+        <h3>{title}</h3>
       </div>
       <div className='graph'>
         {children}

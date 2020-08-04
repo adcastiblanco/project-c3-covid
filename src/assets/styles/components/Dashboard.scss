@@ -18,16 +18,4 @@
     @include grid-template-columns(1fr);
     @include grid-template-rows(1fr);
   }
-  .graphContainer {
-    background-color: #fbfbfb;
-    border-radius: 5px;
-    height: 100%;
-    @include grid-row(2, 3);
-    &.one {
-      @include grid-column(1, 3);
-    }
-    &.two {
-      @include grid-column(3, 5);
-    }
-  }
 }

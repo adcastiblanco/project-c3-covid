@@ -6,7 +6,7 @@ const Label = ({ title, data }) => {
       <div className='Label'>
         <h5>{title}</h5>
         <h4>{data}</h4>
-        <h6>acumulados</h6>
+        <h6>Acumulados</h6>
       </div>
     </>
   );

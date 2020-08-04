@@ -4,9 +4,9 @@ import FormSymptoms from '../components/FormSymptoms'
 
 function RegisterSymptoms() {
     return (
-        <div className="register-symptoms">
+        <section className="register-symptoms content-container">
             <FormSymptoms />
-        </div>
+        </section>
     )
 }
 

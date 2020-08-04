@@ -3,10 +3,10 @@ import {
   ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 
-const RenderStackedBarChart = ({data}) => {
+const RenderStackedBarChart = ({ data }) => {
   return (
     <ResponsiveContainer width='100%' height='100%'>
-      <BarChart  data={data}>
+      <BarChart data={data}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="label" />
         <YAxis />

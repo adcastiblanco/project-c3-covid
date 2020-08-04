@@ -1,16 +1,29 @@
 .container {
   height: 100%;
   width: 100%;
-  .title h1 {
+  .title h3 {
     height: 20%;
     width: 100%;
     @include font-size(15px);
-    color: $black-color;
+    color: $primary-color;
     text-align: center;
   }
   .graph {
     height: 80%;
     width: 80%;
     margin: 0 auto;
+  }
+}
+
+.graphContainer {
+  background-color: #fbfbfb;
+  border-radius: 5px;
+  height: 100%;
+  @include grid-row(2, 3);
+  &.one {
+    @include grid-column(1, 3);
+  }
+  &.two {
+    @include grid-column(3, 5);
   }
 }
