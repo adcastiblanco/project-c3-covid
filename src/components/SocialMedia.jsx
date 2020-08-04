@@ -6,19 +6,17 @@ import { googleAuthProvider, facebookAuthProvider } from '../utils/firebase';
 import { SignInSocialMedia } from '../services/AuthServices';
 
 const SocialMedia = () => {
-  const handleClickGoogle = () => {
-    SignInSocialMedia(googleAuthProvider).then(async (response) => {
-      await singIn(response);
-    });
+  const handleClickGoogle = async () => {
+    const result = await SignInSocialMedia(googleAuthProvider);
+    singIn(result);
   };
 
-  const handleClickFacebook = () => {
-    SignInSocialMedia(facebookAuthProvider).then(async (response) => {
-      await singIn(response);
-    });
+  const handleClickFacebook = async () => {
+    const result = await SignInSocialMedia(facebookAuthProvider);
+    singIn(result);
   };
 
-  const singIn = async (response) => {
+  const singIn = (response) => {
     if (response.code === undefined) {
       swal({
         title: 'Sesión iniciada correctamente',
