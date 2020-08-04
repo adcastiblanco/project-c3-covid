@@ -1,37 +1,41 @@
 .home-sidebar {
-  background: #fbfbfb;
+  background: #1d2129;
   grid-area: side;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
   padding-bottom: 10px;
+  box-shadow: 1px 1px 4px -1px #252a34;
   &__list {
     padding: 0;
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0;
     list-style: none;
   }
   &__item {
-    margin: 20px auto;
-    border: 1px solid $white-color;
-    border-radius: 5px;
     & a {
-      margin: 20px auto;
+      display: block;
+      line-height: 2.5em;
+      height: 2.5em;
       text-align: center;
       text-decoration: none;
-      color: $black-color;
+      color: $white-color;
       font-size: 1em;
       font-weight: bold;
+      border-radius: 5px;
+      border: 1px solid transparent;
       &:hover {
         color: $cian-color-C3;
         transition: 0.2s;
+        border: 1px solid $dark-color-C3;
+        background-color: $dark-color-C3;
       }
     }
   }
   .platzi-master {
     margin: 0;
     text-align: center;
-    color: $dark-color-C3;
+    color: $white-color;
     font-weight: bold;
     font-size: 1em;
     span {

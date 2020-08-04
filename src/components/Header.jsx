@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import '../assets/styles/components/Header.scss';
-
 import logo from '../assets/images/brand.png';
 const Header = () => {
   const session = () => {

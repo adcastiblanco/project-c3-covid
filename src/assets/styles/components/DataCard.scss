@@ -16,7 +16,7 @@
 }
 
 .graphContainer {
-  background-color: #fbfbfb;
+  background-color: $white-color;
   border-radius: 5px;
   height: 100%;
   @include grid-row(2, 3);
