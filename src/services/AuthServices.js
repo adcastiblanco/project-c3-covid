@@ -39,70 +39,58 @@ export async function SingInEmailPassword(email, password) {
  * Function that SingIn with social media
  * If the user no existed in the database, this the created
  * @param {*} provider
- * @returns {data}
+ * @returns {Array} {data:{username , _id} , token}
  */
 export async function SignInSocialMedia(provider) {
   try {
-    const res = await firebaseConfig
+    let data = {};
+
+    const sigInSocialMedia = await firebaseConfig
       .auth()
       .signInWithPopup(provider)
-      .then(async (response) => {
-        let data = {};
-
-        const userId = await getUserId(response.user.uid)
-          .then((data) => data.data)
-          .catch((err) => err);
-
-        if (userId === null) {
-          /**User not exist in the db **/
-          if (response.additionalUserInfo.providerId === 'google.com') {
-            data = {
-              _uid: response.user.uid,
-              first_name: response.additionalUserInfo.profile.given_name,
-              last_name: response.additionalUserInfo.profile.family_name,
-            };
-          } else if (
-            response.additionalUserInfo.providerId === 'facebook.com'
-          ) {
-            data = {
-              _uid: response.user.uid,
-              first_name: `${response.additionalUserInfo.profile.first_name} ${response.additionalUserInfo.profile.middle_name}`,
-              last_name: response.additionalUserInfo.profile.last_name,
-            };
-          }
-
-          /** Register user*/
-          try {
-            const user = await RegisterUser(data)
-              .then((result) => result.data)
-              .catch((error) => error);
-            return user;
-          } catch (error) {
-            return error;
-          }
-        }
-
-        return userId;
-      })
-      .then(async (userId) => {
-        try {
-          /** get token*/
-          const data = {
-            username: `${userId.first_name} ${userId.last_name}`,
-            _id: userId._id,
-          };
-          const response = await getTokenId(data);
-
-          return response;
-        } catch (error) {
-          return error;
-        }
-      })
+      .then((response) => response)
       .catch((error) => {
         return error;
       });
 
-    return res;
+    const userId = await getUserId(sigInSocialMedia.user.uid);
+
+    if (userId.data === null) {
+      /**User not exist in the db **/
+      if (sigInSocialMedia.additionalUserInfo.providerId === 'google.com') {
+        data = {
+          _uid: sigInSocialMedia.user.uid,
+          first_name: sigInSocialMedia.additionalUserInfo.profile.given_name,
+          last_name: sigInSocialMedia.additionalUserInfo.profile.family_name,
+        };
+      } else if (
+        sigInSocialMedia.additionalUserInfo.providerId === 'facebook.com'
+      ) {
+        data = {
+          _uid: sigInSocialMedia.user.uid,
+          first_name: `${sigInSocialMedia.additionalUserInfo.profile.first_name} ${sigInSocialMedia.additionalUserInfo.profile.middle_name}`,
+          last_name: sigInSocialMedia.additionalUserInfo.profile.last_name,
+        };
+      }
+
+      /** Register user*/
+      const user = await RegisterUser(data);
+
+      /** get token*/
+      const response = await getTokenId({
+        username: `${user.first_name} ${user.last_name}`,
+        _id: user._id,
+      });
+      return response;
+    } else {
+      /**User exist in the db **/
+      /** get token*/
+      const response = await getTokenId({
+        username: `${userId.data.first_name} ${userId.data.last_name}`,
+        _id: userId.data._id,
+      });
+      return response;
+    }
   } catch (error) {
     return error;
   }
