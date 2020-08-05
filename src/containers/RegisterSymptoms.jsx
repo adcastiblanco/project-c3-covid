@@ -1,5 +1,4 @@
 import React from 'react'
-import Sidebar from '../components/Sidebar'
 import FormSymptoms from '../components/FormSymptoms'
 
 function RegisterSymptoms() {

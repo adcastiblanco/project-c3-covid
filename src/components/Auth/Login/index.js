@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import SocialMedia from './SocialMedia';
+import SocialMedia from '../../SocialMedia';
 import swal from 'sweetalert';
-import loader from '../assets/images/loader.gif';
+import loader from '../../../assets/images/loader.gif';
 
-import { SingInEmailPassword, getTokenId } from '../services/AuthServices';
+import { SingInEmailPassword, getTokenId } from '../../../services/AuthServices';
 
 const Login = React.forwardRef((props, ref) => {
   const [form, setValues] = useState({

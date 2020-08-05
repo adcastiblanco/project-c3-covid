@@ -1,9 +1,9 @@
 import React from 'react';
 import { FaGooglePlusG, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 
-import { googleAuthProvider, facebookAuthProvider } from '../utils/firebase';
+import { googleAuthProvider, facebookAuthProvider } from '../../utils/firebase';
 
-import { SignInSocialMedia } from '../services/AuthServices';
+import { SignInSocialMedia } from '../../services/AuthServices';
 
 const SocialMedia = () => {
   const handleClickGoogle = async () => {

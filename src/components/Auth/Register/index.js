@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import SocialMedia from './SocialMedia';
+import SocialMedia from '../../SocialMedia';
 import swal from 'sweetalert';
-import loader from '../assets/images/loader.gif';
+import loader from '../../../assets/images/loader.gif';
 
-import { CreateUser, RegisterUser, getTokenId } from '../services/AuthServices';
+import { CreateUser, RegisterUser, getTokenId } from '../../../services/AuthServices';
 
 const Register = React.forwardRef((props, ref) => {
   const [form, setForm] = useState({

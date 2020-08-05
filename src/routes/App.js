@@ -1,7 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import Layout from '../containers/Layout'
+import Layout from '../components/Layout'
+
 import Home from '../containers/Home'
 import LoginRegister from '../containers/LoginRegister'
 import RegisterSymptoms from '../containers/RegisterSymptoms';

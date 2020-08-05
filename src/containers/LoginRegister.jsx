@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Login from '../components/Login'
-import Register from '../components/Register'
-import Overlay from '../components/Overlay';
+import Login from '../components/Auth/Login'
+import Register from '../components/Auth/Register'
+import Overlay from '../components/Auth/Overlay';
 
 const LoginRegister = () => {
     const container = React.createRef()

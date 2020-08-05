@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import logo from '../assets/images/brand.png';
+import logo from '../../../assets/images/brand.png';
 const Header = () => {
   const session = () => {
     let username = window.localStorage.username

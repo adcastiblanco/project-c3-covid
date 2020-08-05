@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DataCard from './DataCard';
-import RenderAreaChart from './RenderAreaChart';
+import RenderAreaChart from './RenderAreaChart/';
 import RenderStackedBarChart from './RenderStackedBarChart';
 import Label from './Label';
 
