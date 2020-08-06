@@ -12,7 +12,7 @@ const RenderAreaChart = ({ data }) => {
         <YAxis />
         <Tooltip />
         <Area type='monotone' dataKey='Confirmed' stroke='#8884d8' fill='#8884d8' />
-        <Area type='monotone' dataKey='Deaths' stroke='#8884d8' fill='#82ca9d' />
+        <Area type='monotone' dataKey='Deaths' stroke='#82ca9d' fill='#82ca9d' />
       </AreaChart>
     </ResponsiveContainer>
   );
