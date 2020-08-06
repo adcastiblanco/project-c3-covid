@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-const DropDownMenu = ({ title, items = [], multiSelect = false }) => {
+const DropDownMenu = ({ title, items = [], handleSetCountry, country }) => {
   const [open, setOpen] = useState(false);
-  const [selection, setSelection] = useState();
   const toggle = () => setOpen(!open);
+
   const handledOnClick = (item) => {
-    setSelection(item.name);
+    handleSetCountry(item.name);
     toggle();
   };
 
@@ -20,7 +20,7 @@ const DropDownMenu = ({ title, items = [], multiSelect = false }) => {
       >
         <div className='dd-header__title'>
           <p className='dd-header__title--bold'>
-            { selection || title }
+            { country || title }
           </p>
         </div>
         <div className='dd-header__action'>
