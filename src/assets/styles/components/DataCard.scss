@@ -19,7 +19,7 @@
   background-color: $white-color;
   border-radius: 5px;
   height: 100%;
-  @include grid-row(2, 3);
+  @include grid-row(3, 4);
   &.one {
     @include grid-column(1, 3);
   }

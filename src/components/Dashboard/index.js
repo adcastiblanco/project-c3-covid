@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import DataCard from './DataCard';
-import RenderAreaChart from './RenderAreaChart/';
+import RenderAreaChart from './RenderAreaChart';
 import RenderStackedBarChart from './RenderStackedBarChart';
 import Label from './Label';
+import DropDownMenu from './DropDownMenu';
 
 const Dashboard = () => {
   const API = [
@@ -42,6 +43,9 @@ const Dashboard = () => {
 
   return (
     <section className='dashboard'>
+      <div className='menu'>
+        <DropDownMenu />
+      </div>
       <div className='item'>
         <Label title='Confirmados' data={data.lastone.Confirmed} color='red' />
       </div>

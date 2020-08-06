@@ -7,12 +7,20 @@
   grid-gap: 1.5%;
   @include display-grid;
   @include grid-template-columns(1fr grid-repeat(3));
-  @include grid-template-rows(18% 75%);
+  @include grid-template-rows(15% 15% 70%);
+  .menu{
+    @include grid-row(1, 2);
+    @include grid-column(3,5);
+    @include grid-template-columns(1fr);
+    @include grid-template-rows(1fr);
+    background-color: red;
+  }
   .item {
     display: flex;
     justify-content: center;
     height: 100%;
     width: 100%;
+    @include grid-row(2, 3);
   }
   .item {
     @include grid-template-columns(1fr);
