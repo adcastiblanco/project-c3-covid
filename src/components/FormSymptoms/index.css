@@ -1,0 +1,11 @@
+.symptoms-check {
+  display: none;
+}
+
+.symptoms-send {
+  display: none;
+}
+
+.show {
+  display: block;
+}
