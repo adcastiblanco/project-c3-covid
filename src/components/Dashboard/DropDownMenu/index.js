@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 
-const DropDownMenu = ({ title, items=[], multiselect = false }) => {
+const DropDownMenu = ({ title, items = [], multiSelect = false }) => {
   const [open, setOpen] = useState(false);
   const [selection, setSelection] = useState([]);
   const toggle = () => setOpen(!open);
-
   const handledOnClick = (item) => {
-    console.log(item);
+    if(!selection.some((current) => current.name))
   };
 
   return (
@@ -21,17 +20,16 @@ const DropDownMenu = ({ title, items=[], multiselect = false }) => {
         <div className='dd-header__title'>
           <p className='dd-header__title--bold'>{title}</p>
         </div>
-      </div>
-      <div className='dd-header-action'>
-        <p>{open ? 'Close' : 'Open'}</p>
+        <div className='dd-header__action'>
+          <p>{open ? 'Close' : 'Open'}</p>
+        </div>
       </div>
       {open && (
         <ul className='dd-list'>
           {items.map((item) => (
-            <li className='dd-list-item' key={item.id}>
-              <button type='button' onClick={handledOnClick(item)}>
-                <span>{item.value}</span>
-                <span>Selected..</span>
+            <li className='dd-list-item' key={item.alpha3Code}>
+              <button type='button' onClick={() => handledOnClick(item)}>
+                <span>{item.name}</span>
               </button>
             </li>
           ))}

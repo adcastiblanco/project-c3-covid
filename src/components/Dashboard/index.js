@@ -33,30 +33,46 @@ const Dashboard = () => {
   const [data, setData] = useState({
     info: '',
     lastone: '',
+    countries: '',
   });
 
-  useEffect(() => {
-    fetch('https://api.covid19api.com/dayone/country/Mexico')
+  useEffect(async () => {
+    fetch('https://restcountries.eu/rest/v2/lang/es')
       .then((data) => data.json())
-      .then((data) => setData({ info: data, lastone: data[data.length - 1] }));
+      .then((data) => setData({
+        countries: data.filter((country) => (country.subregion === 'South America' || country.subregion === 'Central America')),
+      }));
+
+    // fetch('https://api.covid19api.com/dayone/country/Mexico')
+      // .then((data) => data.json())
+      // .then((data) => setData({ ...data, info: data, lastone: data[data.length - 1] }));
+
   }, []);
 
   return (
     <section className='dashboard'>
       <div className='menu'>
-        <DropDownMenu />
+        <DropDownMenu title='Selecciona un país' items={data.countries} />
       </div>
       <div className='item'>
-        <Label title='Confirmados' data={data.lastone.Confirmed} color='red' />
+        <Label title='Confirmados'
+          // data={ data.lastone.Confirmed }
+        />
       </div>
       <div className='item'>
-        <Label title='Defunciones' data={data.lastone.Deaths} color='black' />
+        <Label title='Defunciones'
+          // data={data.lastone.Deaths}
+        />
       </div>
       <div className='item'>
-        <Label title='Activos' data={data.lastone.Active} color='yellow' />
+        <Label title='Activos'
+          // data={data.lastone.Active} color='yellow'
+        />
       </div>
       <div className='item'>
-        <Label title='Recuperados' data={data.lastone.Recovered} color='green' />
+        <Label title='Recuperados'
+          // data={data.lastone.Recovered}
+        />
       </div>
       <div className='graphContainer one'>
         <DataCard title='Casos y Muertes'>
