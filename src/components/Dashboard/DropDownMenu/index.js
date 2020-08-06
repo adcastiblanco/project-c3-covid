@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 
 const DropDownMenu = ({ title, items = [], multiSelect = false }) => {
   const [open, setOpen] = useState(false);
-  const [selection, setSelection] = useState([]);
+  const [selection, setSelection] = useState();
   const toggle = () => setOpen(!open);
   const handledOnClick = (item) => {
-    if(!selection.some((current) => current.name))
+    setSelection(item.name);
+    toggle();
   };
 
   return (
@@ -18,7 +19,9 @@ const DropDownMenu = ({ title, items = [], multiSelect = false }) => {
         onClick={() => toggle(!open)}
       >
         <div className='dd-header__title'>
-          <p className='dd-header__title--bold'>{title}</p>
+          <p className='dd-header__title--bold'>
+            { selection || title }
+          </p>
         </div>
         <div className='dd-header__action'>
           <p>{open ? 'Close' : 'Open'}</p>
