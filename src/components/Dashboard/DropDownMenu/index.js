@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { MenuContainer, SelectCountry, ListCountries, CountryItem, CountryName } from './styles'
 
 const DropDownMenu = ({ title, items = [], handleSetCountry, country }) => {
   const [open, setOpen] = useState(false);
@@ -10,33 +11,28 @@ const DropDownMenu = ({ title, items = [], handleSetCountry, country }) => {
   };
 
   return (
-    <>
-      <div
+    <MenuContainer>
+      <SelectCountry
         tabIndex={0}
-        className="dd-header"
         role="button"
         onKeyPress={() => toggle(!open)}
         onClick={() => toggle(!open)}
       >
-        <div className="dd-header__title">
-          <p className="dd-header__title--bold">{country || title}</p>
-        </div>
-        <div className="dd-header__action">
-          <p>{open ? 'Close' : 'Open'}</p>
-        </div>
-      </div>
+        <p><b>{country || title}</b></p>
+        <p>{open ? 'Close' : 'Open'}</p>
+      </SelectCountry>
       {open && (
-        <ul className="dd-list">
+        <ListCountries className="dd-list">
           {items.map((item) => (
-            <li className="dd-list-item" key={item.alpha3Code}>
-              <button type="button" onClick={() => handledOnClick(item)}>
-                <span>{item.name}</span>
-              </button>
-            </li>
+            <CountryItem className="dd-list-item" key={item.alpha3Code}>
+              <CountryName type="button" onClick={() => handledOnClick(item)}>
+                {item.name}
+              </CountryName>
+            </CountryItem>
           ))}
-        </ul>
+        </ListCountries>
       )}
-    </>
+    </MenuContainer>
   );
 };
 

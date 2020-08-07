@@ -36,9 +36,7 @@ const Dashboard = () => {
         <h1>Bienvenido a nuestra Sitio Web</h1>
         <p> Selecciona un páis para conocer la situación actual</p>
       </div>
-      <div className='menu'>
-        <DropDownMenu title='Selecciona un país' items={countries} handleSetCountry={handleSetCountry} country={country} />
-      </div>
+      <DropDownMenu title='Selecciona un país' items={countries} handleSetCountry={handleSetCountry} country={country} />
       {country && (
         <>
           <div className='item'>

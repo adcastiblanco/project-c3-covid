@@ -27,6 +27,7 @@
     "recharts": "^1.8.5",
     "redux": "^4.0.5",
     "sass": "^1.26.10",
+    "styled-components": "^5.1.1",
     "sweetalert": "^2.1.2"
   },
   "devDependencies": {

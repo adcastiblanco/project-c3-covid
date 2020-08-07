@@ -10,13 +10,6 @@
   line-height: calculateRem($size) * 1.5;
 }
 
-@mixin styling() {
-  background-color: white;
-  border: solid 1px $primary-color;
-  border-radius: 5px;
-  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
-}
-
 html {
   height: 100%;
   body {
