@@ -1,9 +1,9 @@
 import React from 'react'
-
+import { MainFooter } from './styles'
 const Footer = () => (
-    <footer>
-        <p className="cohort">Cohort 3 2020</p>
-    </footer>
+    <MainFooter>
+        <p>Cohort 3 2020</p>
+    </MainFooter>
 )
 
 export default Footer

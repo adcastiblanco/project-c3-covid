@@ -1,51 +1,54 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { MainHeader, LogoContainer, MenuHeader, NavMenu, NavList, NavItem } from './styles'
+
 import logo from '../../../assets/images/brand.png';
+
 const Header = () => {
   const session = () => {
     let username = window.localStorage.username
     if (username !== undefined) {
       return (
         <>
-          <li className="header-menu__item">
+          <NavItem className="header-menu__item">
             <p>Bienvenido <span>{username}</span></p>
-          </li>
-          <li className="header-menu__item">
+          </NavItem>
+          <NavItem className="header-menu__item">
             <Link to="/login" onClick={() => window.localStorage.clear()}>Cerrar sesión</Link>
-          </li>
+          </NavItem>
         </>
       )
     }
     else {
       return (
-        <li className="header-menu__item">
+        <NavItem className="header-menu__item">
           <Link to="/login">Iniciar Sesión</Link>
-        </li>
+        </NavItem>
       )
     }
   }
   return (
-    <header>
-      <figure className="logo">
+    <MainHeader>
+      <LogoContainer>
         <Link to="/">
           <img src={logo} alt="" />
         </Link>
-      </figure>
-      <div className="header">
-        <menu className="header-menu">
-          <ul className="header-menu__list">
-            <li className="header-menu__item">
+      </LogoContainer>
+      <MenuHeader className="header">
+        <NavMenu className="header-menu">
+          <NavList className="header-menu__list">
+            <NavItem className="header-menu__item">
               <Link to="/">Inicio</Link>
-            </li>
-            <li className="header-menu__item">
+            </NavItem>
+            <NavItem className="header-menu__item">
               <Link to="/">Perfil</Link>
-            </li>
+            </NavItem>
             {session()}
-          </ul>
-        </menu>
-      </div>
-    </header>
+          </NavList>
+        </NavMenu>
+      </MenuHeader>
+    </MainHeader>
   )
 };
 

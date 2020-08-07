@@ -22,9 +22,9 @@ const DropDownMenu = ({ title, items = [], handleSetCountry, country }) => {
         <p>{open ? 'Close' : 'Open'}</p>
       </SelectCountry>
       {open && (
-        <ListCountries className="dd-list">
+        <ListCountries>
           {items.map((item) => (
-            <CountryItem className="dd-list-item" key={item.alpha3Code}>
+            <CountryItem key={item.alpha3Code}>
               <CountryName type="button" onClick={() => handledOnClick(item)}>
                 {item.name}
               </CountryName>

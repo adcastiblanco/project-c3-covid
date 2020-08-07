@@ -1,28 +1,30 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import { Aside, SidebarList, SidebarItem } from './styles'
+
 const Sidebar = () => {
     return (
-        <aside className="home-sidebar">
-            <ul className="home-sidebar__list">
-                <li className="home-sidebar__item">
+        <Aside>
+            <SidebarList>
+                <SidebarItem>
                     <Link to="/">Estadisticas</Link>
-                </li>
-                <li className="home-sidebar__item">
+                </SidebarItem>
+                <SidebarItem>
                     <Link to="/RegisterSymptoms">Registrar sintomas</Link>
-                </li>
-                <li className="home-sidebar__item">
+                </SidebarItem>
+                <SidebarItem>
                     <Link to="/">Consejos de cuidado</Link>
-                </li>
-                <li className="home-sidebar__item">
+                </SidebarItem>
+                <SidebarItem>
                     <Link to="/">Sobre el COVID-19</Link>
-                </li>
-                <li className="home-sidebar__item">
+                </SidebarItem>
+                <SidebarItem>
                     <Link to="/">Acerca de nosotros</Link>
-                </li>
-            </ul>
-            <p className="platzi-master"><span>Platzi</span>Master</p>
-        </aside>
+                </SidebarItem>
+            </SidebarList>
+            <p><span>Platzi</span>Master</p>
+        </Aside>
     )
 }
 
