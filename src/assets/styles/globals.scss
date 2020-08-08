@@ -28,9 +28,8 @@ html {
           'side footer footer footer footer';
         grid-template-rows: 55px 1fr 35px;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        grid-gap: 0 1.4%;
-        height: 100%;
         background-color: #eaeaea;
+        height: 100%;
       }
     }
   }
@@ -57,5 +56,7 @@ figure {
 
 .content-container {
   grid-area: content;
-  margin-right: 1.4%;
+  background-color: #eaeaea;
+  padding: 0 1.4%;
+  box-sizing: border-box;
 }

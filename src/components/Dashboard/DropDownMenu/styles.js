@@ -41,7 +41,7 @@ list-style-type: none;
 
 &:first-of-type {
   > button {
-    border-top: 1px solid $gray-color-C3;
+    border-top: 1px solid var(--gray-color-C3);
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
   }
