@@ -8,7 +8,6 @@ export const MainHeader = styled.header`
   background-color: #252a34;
   display:grid;
   grid-template-columns:repeat(5, 1fr);
-  grid-gap: 0 1.4%;
 `
 
 export const LogoContainer = styled.figure`

@@ -1,15 +1,15 @@
 import React from 'react';
 
-const DataCard = ({ title, children }) => {
+import { GraphContainer, GraphTitle, GraphItem } from './styles'
+
+const DataCard = ({ title, children, containerClass }) => {
   return (
-    <div className='container'>
-      <div className='title'>
-        <h3>{title}</h3>
-      </div>
-      <div className='graph'>
+    <GraphContainer className={containerClass}>
+      <GraphTitle>{title}</GraphTitle>
+      <GraphItem className='graph'>
         {children}
-      </div>
-    </div>
+      </GraphItem>
+    </GraphContainer>
   );
 };
 

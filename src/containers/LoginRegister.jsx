@@ -4,6 +4,8 @@ import Login from '../components/Auth/Login'
 import Register from '../components/Auth/Register'
 import Overlay from '../components/Auth/Overlay';
 
+import '../components/Auth/index.scss'
+
 const LoginRegister = () => {
     const container = React.createRef()
     return (

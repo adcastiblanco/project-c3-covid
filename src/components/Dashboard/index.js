@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import DataCard from './DataCard';
 import RenderAreaChart from './RenderAreaChart';
 // import RenderStackedBarChart from './RenderStackedBarChart';
-import Label from './Label';
+import LabelDataCovid from './LabelDataCovid';
 import DropDownMenu from './DropDownMenu';
+
+import { DashboardContainer, HeadingDashboard } from './styles'
 
 const Dashboard = () => {
 
@@ -31,40 +33,27 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <section className='dashboard'>
-      <div className='title'>
+    <DashboardContainer>
+      <HeadingDashboard>
         <h1>Bienvenido a nuestra Sitio Web</h1>
-        <p> Selecciona un páis para conocer la situación actual</p>
-      </div>
+        <p>Selecciona un páis para conocer la situación actual</p>
+      </HeadingDashboard>
       <DropDownMenu title='Selecciona un país' items={countries} handleSetCountry={handleSetCountry} country={country} />
       {country && (
         <>
-          <div className='item'>
-            <Label title='Confirmados' data={lastone.Confirmed} />
-          </div>
-          <div className='item'>
-            <Label title='Defunciones' data={lastone.Deaths} />
-          </div>
-          <div className='item'>
-            <Label title='Activos' data={lastone.Active} />
-          </div>
-          <div className='item'>
-            <Label title='Recuperados' data={lastone.Recovered} />
-          </div>
-          <div className='graphContainer one'>
-            <DataCard title='Casos y Muertes'>
-              <RenderAreaChart data={data} />
-            </DataCard>
-          </div>
-          <div className='graphContainer two'>
-            <DataCard title='Casos Hombres y Mujeres'>
-              {/* <RenderStackedBarChart data={API} /> */}
-            </DataCard>
-          </div>
+          <LabelDataCovid title='Confirmados' data={lastone.Confirmed} />
+          <LabelDataCovid title='Defunciones' data={lastone.Deaths} />
+          <LabelDataCovid title='Activos' data={lastone.Active} />
+          <LabelDataCovid title='Recuperados' data={lastone.Recovered} />
+          <DataCard title='Casos y Muertes' containerClass="one">
+            <RenderAreaChart data={data} />
+          </DataCard>
+          <DataCard title='Casos Hombres y Mujeres' containerClass="two">
+            {/* <RenderStackedBarChart data={API} /> */}
+          </DataCard>
         </>
       )}
-    </section>
-  );
-};
-
+    </DashboardContainer>
+  )
+}
 export default Dashboard;

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import { device } from '../../assets/styles/Breakpoints'
 export const RegisterSymptoms = styled.section`
   height:100%;
   width: 100%;
