@@ -1,10 +1,10 @@
 import React from 'react';
-import Dashboard from '../components/Dashboard'
+import Dashboard from '../components/Dashboard';
 
 const Home = () => (
-    <section className="content-container">
-        <Dashboard />
-    </section>
-)
+  <section className='content-container'>
+    <Dashboard />
+  </section>
+);
 
-export default Home
+export default Home;
