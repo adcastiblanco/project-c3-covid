@@ -13,8 +13,7 @@ export const CovidNumbersItem = styled.div`
   height: 65%;
   padding: 5px;
   text-align: center;
-  border: solid 1px var(--primary-color);
-  border-left: solid 5px var(--primary-color);
+  box-shadow: -1px 1px 2px 1px var(--primary-color);
 `
 
 export const CovidNumbersTitle = styled.h5`

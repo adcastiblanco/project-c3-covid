@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MenuContainer, SelectCountry, ListCountries, CountryItem, CountryName } from './styles'
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md'
 
 const DropDownMenu = ({ title, items = [], handleSetCountry, country }) => {
   const [open, setOpen] = useState(false);
@@ -19,7 +20,7 @@ const DropDownMenu = ({ title, items = [], handleSetCountry, country }) => {
         onClick={() => toggle(!open)}
       >
         <p><b>{country || title}</b></p>
-        <p>{open ? 'Close' : 'Open'}</p>
+        {open ? <MdKeyboardArrowUp style={{ alignSelf: "center" }} size={25} /> : <MdKeyboardArrowDown style={{ alignSelf: "center" }} size={25} />}
       </SelectCountry>
       {open && (
         <ListCountries>

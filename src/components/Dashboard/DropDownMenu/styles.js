@@ -1,4 +1,14 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const rotate = keyframes`
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 300px;
+  }
+`;
 
 export const MenuContainer = styled.div`
   position: relative;
@@ -15,23 +25,24 @@ export const MenuContainer = styled.div`
 
 export const SelectCountry = styled.div`
 background-color: white;
-  border: solid 1px #ff445b;
   border-radius: 5px;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-  width: 100%;
-  padding: 0 20px;
+  width: 70%;
+  padding: 0 5%;
+  box-sizing: border-box;
 `
 
 export const ListCountries = styled.ul`
  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+ animation: ${rotate} 0.3s alternate;
   padding: 0;
   margin: 0;
-  width: 100%;
+  width: 70%;
   position: absolute;
-  top: 100%;
+  top: 84%;
   height: 300px;
   overflow-y: scroll;
 `
@@ -55,7 +66,7 @@ list-style-type: none;
 
 export const CountryName = styled.button`
  display: flex;
-      justify-content: space-between;
+      justify-content: center;
       background-color: white;
       font-size: 16px;
       padding: 15px 20px;
