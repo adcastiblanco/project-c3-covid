@@ -1,6 +1,6 @@
 # COVID-19 Cohort-3
 
-_This project is a website where people who register can check COVID-19 statistics. They can also record their symptoms related to the disease to detect if the person probably has COVID-19. All information can be consulted with the registered user _
+_This project is a website where people who register can check COVID-19 statistics. They can also record their symptoms related to the disease to detect if the person probably has COVID-19. All information can be consulted with the registered user_
 
 ## Installation and initialization 🔧
 
@@ -42,7 +42,7 @@ _Menciona las herramientas que utilizaste para crear tu proyecto_
 
 ## License 📄
 
-This project is under the License (MIT) -
+This project is under the License (MIT)
 
 ## Expresiones de Gratitud 🎁
 
