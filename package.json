@@ -8,7 +8,7 @@
     "start": "webpack-dev-server --open --mode development "
   },
   "keywords": [],
-  "author": "juanchobuiles, adcastiblanco, luislizcano ",
+  "author": "juanchobuiles, adcastiblanco, luislazcano ",
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.10.5",

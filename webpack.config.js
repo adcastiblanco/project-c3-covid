@@ -2,10 +2,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
+
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '/dist'),
     filename: 'bundle.js',
   },
   resolve: {
@@ -27,16 +28,15 @@ module.exports = {
         },
       },
       {
-        test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        test: /\.(s*)css$/,
+        use: [
+          { loader: MiniCssExtractPlugin.loader },
+          'css-loader',
+          'sass-loader',
+        ],
       },
-
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      },
-      {
-        test: /\jpg|png|gif|svg|mp4|woff$/,
+        test: /\.(jpg|png|gif|svg|mp4|woff)$/,
         use: {
           loader: 'url-loader',
         },
@@ -48,8 +48,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: './index.html',
+      // title: 'Covid 19',
+      favicon: 'src/assets/images/platzi_favicon.png',
+      template: 'public/index.html',
     }),
     new MiniCssExtractPlugin({
       filename: 'assets/[name].css',
