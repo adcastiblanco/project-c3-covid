@@ -44,7 +44,7 @@ _Menciona las herramientas que utilizaste para crear tu proyecto_
 
 This project is under the License (MIT)
 
-## acknowledgements 🎁
+## Acknowledgements 🎁
 
 - We greatly appreciate [Lina Castro](https://github.com/lirrumscode), Coach of our team at Platzi Master who was aware of us, promoting and motivating us with the project. providing us with tools and their knowledge for our professional growth📢
 - We want to invite [Rafael Lagunas](https://github.com/rafastaria) to a coffee for the technical mentorings, tools and advice that he gave us to carry out this project.
