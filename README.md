@@ -2,7 +2,7 @@
 
 _This project is a website where people who register can check COVID-19 statistics. They can also record their symptoms related to the disease to detect if the person probably has COVID-19. All information can be consulted with the registered user _
 
-### Installation and initialization 🔧
+## Installation and initialization 🔧
 
 _If you have already cloned the project code, you must install the dependencies with:_
 
