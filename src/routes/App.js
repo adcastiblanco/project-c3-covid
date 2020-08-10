@@ -1,11 +1,10 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-
 import Layout from '../components/Layout'
-
 import Home from '../containers/Home'
 import LoginRegister from '../containers/LoginRegister'
 import RegisterSymptoms from '../containers/RegisterSymptoms';
+// import device from '../assets/styles/Breakpoints';
 
 const App = () => (
     <BrowserRouter>

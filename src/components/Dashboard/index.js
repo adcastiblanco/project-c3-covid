@@ -5,10 +5,9 @@ import RenderAreaChart from './RenderAreaChart';
 import LabelDataCovid from './LabelDataCovid';
 import DropDownMenu from './DropDownMenu';
 
-import { DashboardContainer, HeadingDashboard } from './styles'
+import { DashboardContainer, HeadingDashboard } from './styles';
 
 const Dashboard = () => {
-
   const [data, setData] = useState([]);
   const [lastone, setLastone] = useState({});
   const [countries, setCountries] = useState([]);
@@ -28,7 +27,10 @@ const Dashboard = () => {
     fetch('https://restcountries.eu/rest/v2/lang/es')
       .then((countries) => countries.json())
       .then((countries) => setCountries(
-        countries.filter((country) => (country.subregion === 'South America' || country.subregion === 'Central America')),
+        countries.filter(
+          (country) => country.subregion === 'South America' ||
+            country.subregion === 'Central America',
+        ),
       ));
   }, []);
 
@@ -38,22 +40,27 @@ const Dashboard = () => {
         <h1>Bienvenido a nuestra Sitio Web</h1>
         <p>Selecciona un páis para conocer la situación actual</p>
       </HeadingDashboard>
-      <DropDownMenu title='Selecciona un país' items={countries} handleSetCountry={handleSetCountry} country={country} />
+      <DropDownMenu
+        title='Selecciona un país'
+        items={countries}
+        handleSetCountry={handleSetCountry}
+        country={country}
+      />
       {country && (
         <>
           <LabelDataCovid title='Confirmados' data={lastone.Confirmed} />
           <LabelDataCovid title='Defunciones' data={lastone.Deaths} />
           <LabelDataCovid title='Activos' data={lastone.Active} />
           <LabelDataCovid title='Recuperados' data={lastone.Recovered} />
-          <DataCard title='Casos y Muertes' containerClass="one">
+          <DataCard title='Casos y Muertes' containerClass='one'>
             <RenderAreaChart data={data} />
           </DataCard>
-          <DataCard title='Casos Hombres y Mujeres' containerClass="two">
+          <DataCard title='Casos Hombres y Mujeres' containerClass='two'>
             {/* <RenderStackedBarChart data={API} /> */}
           </DataCard>
         </>
       )}
     </DashboardContainer>
-  )
-}
+  );
+};
 export default Dashboard;
