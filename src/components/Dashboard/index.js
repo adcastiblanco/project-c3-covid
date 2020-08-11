@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getWeek } from 'date-fns';
+import { format } from 'date-fns';
 import DataCard from './DataCard';
 import RenderAreaChart from './RenderAreaChart';
 import LabelDataCovid from './LabelDataCovid';
@@ -19,7 +19,8 @@ const Dashboard = () => {
       .then((data) => data.json())
       .then((data) => {
         setData(data.map((country) => {
-          country.Date = getWeek(new Date(country.Date.slice(0, 10).split('-')));
+          // country.Date = getWeek(new Date(country.Date.slice(0, 10).split('-')));
+          country.Date = format(new Date(country.Date.slice(0, 10).split('-')), 'MM/dd/yyyy');
           return country;
         }));
         ;
