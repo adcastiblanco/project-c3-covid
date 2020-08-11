@@ -1,15 +1,23 @@
 import styled from 'styled-components'
 import { device } from '../../assets/styles/Breakpoints'
+
+console.log(device)
+
+
 export const RegisterSymptoms = styled.section`
   height:100%;
   width: 100%;
-  padding: 2%;
+  padding: 2% 15%;
   border-radius: 5px;
   box-sizing: border-box;
+  @media ${device.tablet} {
+    padding: 2%;
+  }
 `
 
 export const Form = styled.form`
   width: 100%;
+  border-radius: 10px;
   background-color: var(--white-color);
   height: fit-content;
   box-sizing:border-box;
@@ -20,8 +28,12 @@ export const Form = styled.form`
   & .show {
     display: block !important;
   }
+
   & .symptoms-check {
   display: none;
+   & .two-SubContainer {
+    grid-template-columns: 1fr 1fr
+  }
   }
 `
 

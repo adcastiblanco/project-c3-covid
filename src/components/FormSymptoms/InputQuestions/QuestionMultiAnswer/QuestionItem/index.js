@@ -7,11 +7,18 @@ const ItemAnswer = styled.div`
     cursor: pointer;
     border: 1px solid lightgray;
     border-radius: 5px;
-    padding: 5px 0;
+    margin: 5px 0;
     height: 100%;
     display: flex;
     align-items: center;
     box-sizing:border-box;
+    & label {
+        height: 100%;
+        display: flex;
+    align-items: center;
+    width: 100%;
+      cursor: pointer
+    }
     &:hover {
       background-color: #f1f1f1;
       transition: 0.4s;
@@ -22,8 +29,8 @@ const QuestionItem = ({ attributes, textQuestion }) => {
     return (
         <>
             <ItemAnswer>
-                <input type="checkbox" name={attributes} value={attributes} />
-                <label htmlFor={attributes}>{textQuestion}</label><br />
+                <input type="checkbox" name={attributes} id={attributes} value={attributes} />
+                <label htmlFor={attributes}>{textQuestion} </label><br />
             </ItemAnswer>
         </>
     );

@@ -4,12 +4,12 @@ import QuestionItem from './QuestionItem'
 
 import { QuestionsContainer } from './styles'
 
-const QuestionMultiAnswer = ({ questions, classNames, questionText }) => {
+const QuestionMultiAnswer = ({ questions, classNameContainer, classNameSubContainer, questionText }) => {
 
     return (
-        <div className={classNames}>
+        <div className={classNameContainer}>
             <p>{questionText}</p>
-            <QuestionsContainer>
+            <QuestionsContainer className={classNameSubContainer}>
                 {questions.map((item) =>
                     <QuestionItem attributes={item.attributes} textQuestion={item.answerText} />)}
             </QuestionsContainer>

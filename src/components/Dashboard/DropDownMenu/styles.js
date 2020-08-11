@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
-const rotate = keyframes`
+const animationCountriesList = keyframes`
   from {
     height: 0;
   }
@@ -37,7 +37,7 @@ export const SelectCountry = styled.div`
 
 export const ListCountries = styled.ul`
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-  animation: ${rotate} 0.3s alternate;
+  animation: ${animationCountriesList} 0.3s alternate;
   padding: 0;
   margin: 0;
   width: 70%;
