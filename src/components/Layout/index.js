@@ -1,14 +1,16 @@
-import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
-import Sidebar from './Sidebar'
+import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
+import Sidebar from './Sidebar';
+import App from './style';
 
-const Layout = (props) => (
-    <div className="app">
-        <Header />
-        <Sidebar />
-        {props.children}
-        <Footer />
-    </div>
-)
-export default Layout
+const Layout = ({ children }) => (
+  <App>
+    <Header />
+    <Sidebar />
+    {children}
+    <Footer />
+  </App>
+);
+
+export default Layout;

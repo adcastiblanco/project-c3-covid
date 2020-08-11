@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { format } from 'date-fns';
 import DataCard from './DataCard';
 import RenderAreaChart from './RenderAreaChart';
-// import RenderStackedBarChart from './RenderStackedBarChart';
 import LabelDataCovid from './LabelDataCovid';
 import DropDownMenu from './DropDownMenu';
 
@@ -18,7 +18,12 @@ const Dashboard = () => {
     fetch(`https://api.covid19api.com/dayone/country/${item}`)
       .then((data) => data.json())
       .then((data) => {
-        setData(data);
+        setData(data.map((country) => {
+          // country.Date = getWeek(new Date(country.Date.slice(0, 10).split('-')));
+          country.Date = format(new Date(country.Date.slice(0, 10).split('-')), 'MM/dd/yyyy');
+          return country;
+        }));
+        ;
         setLastone(data[data.length - 1]);
       });
   };
