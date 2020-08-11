@@ -29,7 +29,7 @@ const FormSymptoms = () => {
       <Form>
         <QuestionOneAnswer questionText="¿Ha estado a menos de 6 pies de una persona con un caso de COVID-19 confirmado por laboratorio durante al menos 5 minutos, o ha tenido contacto directo con su moco o saliva, en los últimos 14 días?" inputName="contactPeople" />
         <QuestionOneAnswer questionText="¿Le ha aconsejado un funcionario de salud pública que se haga la prueba de COVID-19?" inputName="adviceTest" />
-        <QuestionMultiAnswer classNames="symptoms-check show" // All questions in one array for send it trough of props
+        <QuestionMultiAnswer classNameContainer="symptoms-check show" classNameSubContainer="one-SubContainer" // All questions in one array for send it trough of props
           questionText="¿Tiene alguno de los siguientes posibles síntomas de emergencia?"
           questions={[{
             'attributes': 'breathe',
@@ -45,14 +45,14 @@ const FormSymptoms = () => {
           }
           ]}
         />
-        <QuestionMultiAnswer classNames="symptoms-check" // All questions in one array for send it trough of props
+        <QuestionMultiAnswer classNameContainer="symptoms-check" classNameSubContainer="two-SubContainer" // All questions in one array for send it trough of props
           questionText="¿Has presentado alguno de estos síntomas recientemente (en los últimos 14 días)?"
           questions={[{
             'attributes': 'fever',
             'answerText': 'Fiebre'
           },
           {
-            'attributes': 'breathe',
+            'attributes': 'breathe2',
             'answerText': 'Dificultad para respirar'
           },
           {
@@ -76,7 +76,7 @@ const FormSymptoms = () => {
             'answerText': 'Disminución del sentido del gusto'
           },
           {
-            'attributes': 'none',
+            'attributes': 'none2',
             'answerText': 'Ninguna de las anteriores'
           }
           ]}
