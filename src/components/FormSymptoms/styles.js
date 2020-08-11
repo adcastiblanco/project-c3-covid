@@ -31,14 +31,18 @@ export const Form = styled.form`
 
   & .symptoms-check {
   display: none;
+   & .one-SubContainer {
+    grid-template-rows: repeat(3, 50px);
+   }
    & .two-SubContainer {
-    grid-template-columns: 1fr 1fr
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 40px)
   }
   }
 `
 
 export const ButtonSymptoms = styled.button`
-margin: 2% auto 0;
+  margin: 2% auto 0;
   background-color: var(--primary-color);
   border: 1px solid lightgrey;
   padding: 10px 20px;
