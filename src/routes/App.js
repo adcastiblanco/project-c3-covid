@@ -4,9 +4,11 @@ import Layout from '../components/Layout';
 import Home from '../containers/Home';
 import LoginRegister from '../containers/LoginRegister';
 import RegisterSymptoms from '../containers/RegisterSymptoms';
+import GlobalStyles from '../assets/styles/GlobalStyles';
 
 const App = () => (
   <BrowserRouter>
+    <GlobalStyles />
     <Switch>
       <Route exact path='/login' component={LoginRegister} />
       <Layout>
