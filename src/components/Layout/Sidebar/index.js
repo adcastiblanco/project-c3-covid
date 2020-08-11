@@ -29,7 +29,5 @@ const Sidebar = () => {
     </Aside>
   );
 };
-<p>
-<span>Platzi</span>Master
-</p>
+
 export default Sidebar;

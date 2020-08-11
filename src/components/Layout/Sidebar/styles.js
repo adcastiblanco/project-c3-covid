@@ -5,7 +5,7 @@ export const Aside = styled.aside`
   grid-area: side;
   display: flex;
   flex-flow: column;
-  height: fit-content;
+  height: 100%;
   justify-content: space-between;
   padding-bottom: 10px;
   box-shadow: 1px 1px 4px -1px #252a34;
