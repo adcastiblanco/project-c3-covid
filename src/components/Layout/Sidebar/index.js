@@ -14,7 +14,7 @@ const Sidebar = () => {
                     <Link to="/RegisterSymptoms">Registrar sintomas</Link>
                 </SidebarItem>
                 <SidebarItem>
-                    <Link to="/">Consejos de cuidado</Link>
+                    <Link to="/caretips">Consejos de cuidado</Link>
                 </SidebarItem>
                 <SidebarItem>
                     <Link to="/">Sobre el COVID-19</Link>
