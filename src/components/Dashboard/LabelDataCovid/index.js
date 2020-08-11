@@ -2,10 +2,10 @@ import React from 'react';
 import { Statistic } from 'antd';
 import { CovidNumbersContainer, CovidNumbersItem, CovidNumbersData, TextAccumulated } from './styles';
 
-const Label = ({ title, data }) => {
+const Label = ({ title, data, color }) => {
   return (
     <CovidNumbersContainer>
-      <CovidNumbersItem>
+      <CovidNumbersItem border={color}>
         <CovidNumbersData>
           <Statistic
             title={title}

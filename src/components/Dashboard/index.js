@@ -58,15 +58,15 @@ const Dashboard = () => {
       />
       {country && (
         <>
-          <LabelDataCovid title='Confirmados' data={lastone.Confirmed} />
-          <LabelDataCovid title='Defunciones' data={lastone.Deaths} />
-          <LabelDataCovid title='Activos' data={lastone.Active} />
-          <LabelDataCovid title='Recuperados' data={lastone.Recovered} />
-          <DataCard title='Casos y Muertes' containerClass='one'>
-            <RenderAreaChart data={data} />
+          <LabelDataCovid title='Confirmados' data={lastone.Confirmed} color='Confirmed' />
+          <LabelDataCovid title='Defunciones' data={lastone.Deaths} color='Deaths' />
+          <LabelDataCovid title='Activos' data={lastone.Active} color='Active' />
+          <LabelDataCovid title='Recuperados' data={lastone.Recovered} color='Recovered' />
+          <DataCard title='Confirmados vs Defunciones' containerClass='one'>
+            <RenderAreaChart data={data} graph1='Confirmed' graph2='Deaths' />
           </DataCard>
-          <DataCard title='Casos Hombres y Mujeres' containerClass='two'>
-            {/* <RenderStackedBarChart data={API} /> */}
+          <DataCard title='Activos vs Recuperados' containerClass='two'>
+            <RenderAreaChart data={data} graph1='Active' graph2='Recovered' />
           </DataCard>
         </>
       )}
