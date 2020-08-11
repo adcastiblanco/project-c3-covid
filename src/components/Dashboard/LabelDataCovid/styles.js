@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { dataBorder } from '../../../utils/dataColors';
 
 export const CovidNumbersContainer = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ export const CovidNumbersItem = styled.div`
   height: 65%;
   padding: 5px;
   text-align: center;
-  box-shadow: -1px 1px 2px 1px var(--primary-color);
+  border-left: ${({ border }) => (dataBorder(border))}
 `;
 
 export const CovidNumbersTitle = styled.h5`

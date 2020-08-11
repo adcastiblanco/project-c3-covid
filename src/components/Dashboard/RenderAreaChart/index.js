@@ -2,8 +2,9 @@ import React from 'react';
 import {
   ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
 } from 'recharts';
+import { color } from '../../../utils/dataColors';
 
-const RenderAreaChart = ({ data }) => {
+const RenderAreaChart = ({ data, graph1, graph2 }) => {
   return (
     <ResponsiveContainer width='100%' height='100%'>
       <AreaChart data={data}>
@@ -11,8 +12,8 @@ const RenderAreaChart = ({ data }) => {
         <XAxis dataKey='Date' />
         <YAxis />
         <Tooltip />
-        <Area type='monotone' dataKey='Confirmed' stroke='#8884d8' fill='#8884d8' />
-        <Area type='monotone' dataKey='Deaths' stroke='#82ca9d' fill='#82ca9d' />
+        <Area type='monotone' dataKey={graph1} stroke={color(graph1)} fill={color(graph1)} />
+        <Area type='monotone' dataKey={graph2} stroke={color(graph2)} fill={color(graph2)} />
       </AreaChart>
     </ResponsiveContainer>
   );
