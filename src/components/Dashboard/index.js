@@ -78,4 +78,5 @@ const Dashboard = () => {
     </DashboardContainer>
   );
 };
+
 export default Dashboard;

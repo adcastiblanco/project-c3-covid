@@ -12,6 +12,7 @@ const animationCountriesList = keyframes`
 `;
 
 export const MenuContainer = styled.div`
+  grid-area: menu;
   position: relative;
   top: 0;
   align-items: center;
@@ -20,8 +21,6 @@ export const MenuContainer = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-  grid-row: 1 / 2;
-  grid-column: 3 / 5;
   @media ${device.mobileL} {
     grid-row: 2 / 3;
     grid-column: 1 / 5;
