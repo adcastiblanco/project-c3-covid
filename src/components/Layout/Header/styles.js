@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../../assets/styles/Breakpoints';
 
 export const MainHeader = styled.header`
   grid-area: head;
@@ -9,6 +10,44 @@ export const MainHeader = styled.header`
   grid-template-columns: repeat(5, 1fr);
   height: 55px;
   width: 100%;
+  @media ${device.tablet} {
+    grid-template-columns: 50px repeat(5, 1fr);
+  }
+`;
+
+export const StyledBurger = styled.button`
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background-color: #FFF;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+  grid-column: 1 / 2;
+  &:focus {
+    outline: none;
+  }
+
+  div {
+    width: 2rem;
+    height: 0.25rem;
+    background: ${({ theme }) => theme.primaryLight};
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+  }
+
+  @media ${device.tablet} {
+    display: flex;
+    grid-column: 2 / 3;
+  }
 `;
 
 export const LogoContainer = styled.figure`
@@ -27,11 +66,18 @@ export const LogoContainer = styled.figure`
     height: 100%;
     width: 80%;
   }
+
+  @media ${device.tablet} {
+    grid-column: 2 / 3;
+  }
 `;
 
 export const MenuHeader = styled.menu`
   grid-column: 2 / 6;
   margin: 0;
+  @media ${device.tablet} {
+    grid-column: 3 / 7;
+  }
 `;
 
 export const NavMenu = styled.nav`
