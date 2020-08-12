@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { device } from '../../../assets/styles/Breakpoints';
 
 const animationCountriesList = keyframes`
   from {
@@ -21,6 +22,10 @@ export const MenuContainer = styled.div`
   height: 100%;
   grid-row: 1 / 2;
   grid-column: 3 / 5;
+  @media ${device.mobileL} {
+    grid-row: 2 / 3;
+    grid-column: 1 / 5;
+  }
 `;
 
 export const SelectCountry = styled.div`
@@ -30,7 +35,7 @@ export const SelectCountry = styled.div`
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-  width: 70%;
+  width: 80%;
   padding: 0 5%;
   box-sizing: border-box;
 `;
@@ -40,7 +45,7 @@ export const ListCountries = styled.ul`
   animation: ${animationCountriesList} 0.3s alternate;
   padding: 0;
   margin: 0;
-  width: 70%;
+  width: 80%;
   position: absolute;
   top: 84%;
   height: 300px;

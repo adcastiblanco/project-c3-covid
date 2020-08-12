@@ -61,7 +61,7 @@ const Dashboard = () => {
         handleSetCountry={handleSetCountry}
         country={country}
       />
-      {country && (
+      {/* {country && (
         <>
           <LabelDataCovid title='Confirmados' data={lastone.Confirmed} color='Confirmed' />
           <LabelDataCovid title='Defunciones' data={lastone.Deaths} color='Deaths' />
@@ -74,7 +74,7 @@ const Dashboard = () => {
             <RenderAreaChart data={data} graph1='Active' graph2='Recovered' />
           </DataCard>
         </>
-      )}
+      )} */}
     </DashboardContainer>
   );
 };

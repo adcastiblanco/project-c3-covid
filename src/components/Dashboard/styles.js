@@ -12,8 +12,8 @@ export const DashboardContainer = styled.section`
   grid-template-rows: 15% 15% 70%;
   align-content: flex-start;
   justify-content: center;
-  @media ${device.tablet} {
-    grid-template-columns: repeat();
+  @media ${device.mobileL} {
+    grid-template-rows: 80px 80px 100px 100px 100px 100px 100px 100px;
   }
 `;
 
@@ -43,5 +43,8 @@ export const HeadingDashboard = styled.div`
     font-size: 16px;
     margin: 0;
     font-weight: bold;
+  }
+  @media ${device.mobileL} {
+    grid-column: 1/ 5;
   }
 `;
