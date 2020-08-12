@@ -8,5 +8,4 @@ const CareTips = () => (
     </>
 )
 
-
 export default CareTips
