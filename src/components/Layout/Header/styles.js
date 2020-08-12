@@ -5,7 +5,7 @@ export const MainHeader = styled.header`
   grid-area: head;
   display: flex;
   justify-content: space-around;
-  background-color: #252a34;
+  background-color: #1d2129;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   height: 55px;

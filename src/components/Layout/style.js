@@ -14,10 +14,9 @@ const App = styled.div`
   @media ${device.tablet} {
     grid-template-areas:
       'head head head head'
-      'side side side side'
       'content content content content'
       'footer footer footer footer';
-    grid-template-rows: 55px 200px 600px 35px;
+    grid-template-rows: 55px 600px 35px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 `;

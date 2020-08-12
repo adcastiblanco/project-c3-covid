@@ -1,9 +1,9 @@
 import React from 'react';
 import StyledBurger from './styles';
 
-const Burger = () => {
+const Burger = ({ open, setOpen }) => {
   return (
-    <StyledBurger>
+    <StyledBurger open={open} onClick={() => setOpen(!open)}>
       <div />
       <div />
       <div />

@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import { device } from '../../../assets/styles/Breakpoints';
 
 export const Aside = styled.aside`
   background: #1d2129;
   grid-area: side;
   display: flex;
   flex-flow: column;
-  height: 100%;
+  height: 104.3%;
   justify-content: space-between;
   padding-bottom: 10px;
   box-shadow: 1px 1px 4px -1px #252a34;
@@ -18,6 +19,15 @@ export const Aside = styled.aside`
     span {
       color: #98ca3f;
     }
+  }
+
+  @media ${device.tablet} {
+    position: absolute;
+    top: 54px;
+    bottom: 0px;
+    left: 0px;
+    right: 50%;
+    transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
   }
 `;
 

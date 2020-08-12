@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import { Aside, SidebarList, SidebarItem } from './styles';
 
-const Sidebar = () => {
+const Sidebar = ({ open }) => {
   return (
-    <Aside>
+    <Aside open={open}>
       <SidebarList>
         <SidebarItem>
           <Link to='/'>Estadisticas</Link>
@@ -23,9 +22,10 @@ const Sidebar = () => {
           <Link to='/'>Acerca de nosotros</Link>
         </SidebarItem>
       </SidebarList>
-      {/* <p>
-        <span>Platzi</span>Master
-      </p> */}
+      <p>
+        <span>Platzi</span>
+        Master
+      </p>
     </Aside>
   );
 };
