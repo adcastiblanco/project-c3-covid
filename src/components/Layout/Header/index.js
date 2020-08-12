@@ -2,14 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   MainHeader,
-  StyledBurger,
   MenuHeader,
   LogoContainer,
   NavMenu,
   NavList,
   NavItem,
 } from './styles';
-
 import logo from '../../../assets/images/brand.png';
 
 const Header = () => {
@@ -41,7 +39,6 @@ const Header = () => {
   };
   return (
     <MainHeader>
-      <StyledBurger />
       <LogoContainer>
         <Link to='/'>
           <img src={logo} alt='' />
