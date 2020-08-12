@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
-import { MenuContainer, SelectCountry, ListCountries, CountryItem, CountryName } from './styles'
-import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md'
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
+import {
+  MenuContainer,
+  SelectCountry,
+  ListCountries,
+  CountryItem,
+  CountryName,
+} from './styles';
 
 const DropDownMenu = ({ title, items = [], handleSetCountry, country }) => {
   const [open, setOpen] = useState(false);
@@ -15,18 +21,24 @@ const DropDownMenu = ({ title, items = [], handleSetCountry, country }) => {
     <MenuContainer>
       <SelectCountry
         tabIndex={0}
-        role="button"
+        role='button'
         onKeyPress={() => toggle(!open)}
         onClick={() => toggle(!open)}
       >
-        <p><b>{country || title}</b></p>
-        {open ? <MdKeyboardArrowUp style={{ alignSelf: "center" }} size={25} /> : <MdKeyboardArrowDown style={{ alignSelf: "center" }} size={25} />}
+        <p>
+          <b>{country || title}</b>
+        </p>
+        {open ? (
+          <MdKeyboardArrowUp style={{ alignSelf: 'center' }} size={25} />
+        ) : (
+          <MdKeyboardArrowDown style={{ alignSelf: 'center' }} size={25} />
+        )}
       </SelectCountry>
       {open && (
         <ListCountries>
           {items.map((item) => (
             <CountryItem key={item.alpha3Code}>
-              <CountryName type="button" onClick={() => handledOnClick(item)}>
+              <CountryName type='button' onClick={() => handledOnClick(item)}>
                 {item.name}
               </CountryName>
             </CountryItem>
