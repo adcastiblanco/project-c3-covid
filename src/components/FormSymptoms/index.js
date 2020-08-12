@@ -26,7 +26,6 @@ const FormSymptoms = () => {
   }
   return (
     <RegisterSymptoms className="content-container">
-      <h3>Registra tu estado de salud para identificar sintomas relacionados con el COVID-19</h3>
       <Form>
         <QuestionOneAnswer questionText="¿Ha estado a menos de 6 pies de una persona con un caso de COVID-19 confirmado por laboratorio durante al menos 5 minutos, o ha tenido contacto directo con su moco o saliva, en los últimos 14 días?" inputName="contactPeople" />
         <QuestionOneAnswer questionText="¿Le ha aconsejado un funcionario de salud pública que se haga la prueba de COVID-19?" inputName="adviceTest" />

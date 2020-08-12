@@ -1,14 +1,13 @@
 import React from 'react';
-import { Checkbox } from 'antd';
-import 'antd/dist/antd.css';
+
 import styled from 'styled-components'
 
 const ItemAnswer = styled.div`
     box-shadow: 0 2px 4px 0 #dbdbdb80;
     cursor: pointer;
-    padding-left: 10px;
     border: 1px solid lightgray;
-    border-radius: 10px;
+    border-radius: 5px;
+    margin: 5px 0;
     height: 100%;
     display: flex;
     align-items: center;
@@ -30,9 +29,8 @@ const QuestionItem = ({ attributes, textQuestion }) => {
     return (
         <>
             <ItemAnswer>
-                <Checkbox type="checkbox" name={attributes} id={attributes} value={attributes}>
-                    {textQuestion}
-                </Checkbox>
+                <input type="checkbox" name={attributes} id={attributes} value={attributes} />
+                <label htmlFor={attributes}>{textQuestion} </label><br />
             </ItemAnswer>
         </>
     );
