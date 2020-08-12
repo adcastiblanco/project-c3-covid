@@ -10,7 +10,7 @@ const StyledBurger = styled.button`
   justify-content: space-around;
   width: 2rem;
   height: 2rem;
-  background-color: #FFF;
+  background-color: #252a34;
   border: none;
   cursor: pointer;
   padding: 0;
@@ -23,7 +23,7 @@ const StyledBurger = styled.button`
   div {
     width: 2rem;
     height: 0.25rem;
-    background: blue;
+    /* background: blue; */
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
@@ -33,7 +33,7 @@ const StyledBurger = styled.button`
   @media ${device.tablet} {
     display: flex;
     grid-column: 2 / 3;
-    background: blue;
+    /* background: blue; */
 }
 `;
 
