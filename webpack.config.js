@@ -45,6 +45,7 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
+    hot: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -53,7 +54,7 @@ module.exports = {
       template: 'public/index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: 'assets/[name].css'
+      filename: 'assets/[name].css',
     }),
     new Dotenv(),
   ],

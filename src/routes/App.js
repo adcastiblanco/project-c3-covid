@@ -1,15 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
 import Layout from '../components/Layout';
 import Home from '../containers/Home';
-
-import '../assets/styles/Main.scss'
-
 import LoginRegister from '../containers/LoginRegister';
 import RegisterSymptoms from '../containers/RegisterSymptoms';
-
 import GlobalStyles from '../assets/styles/GlobalStyles';
+import '../assets/styles/Main.scss';
 
 const App = () => (
   <BrowserRouter>

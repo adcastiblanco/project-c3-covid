@@ -4,6 +4,7 @@ import { device } from '../../assets/styles/Breakpoints';
 export const DashboardContainer = styled.section`
   width: 100%;
   height: 100%;
+  grid-area: content;
   background: #eaeaea;
   grid-gap: 1.5%;
   display: grid;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../assets/styles/Breakpoints';
 
 const App = styled.div`
   display: grid;
@@ -8,8 +9,16 @@ const App = styled.div`
     'side footer footer footer footer';
   grid-template-rows: 55px 1fr 35px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  background-color: #eaeaea;
   height: 100%;
+
+  @media ${device.tablet} {
+    grid-template-areas:
+      'head head head head'
+      'content content content content'
+      'footer footer footer footer';
+    grid-template-rows: 55px 600px 35px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 `;
 
 export default App;
