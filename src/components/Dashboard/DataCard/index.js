@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraphContainer, GraphTitle, GraphItem } from './styles'
+import { GraphContainer, GraphTitle, GraphItem } from './styles';
 
 const DataCard = ({ title, children }) => {
   return (

@@ -1,10 +1,16 @@
 import styled from 'styled-components';
+import { device } from '../../../assets/styles/Breakpoints';
 
 export const GraphContainer = styled.div`
   background-color: var(--white-color);
   border-radius: 5px;
   height: 100%;
   width: 355px;
+  @media ${device.mobileL} {
+    height: 380px;
+    width: 80%;
+    margin: 20px auto;
+  }
 `;
 
 export const GraphTitle = styled.h3`

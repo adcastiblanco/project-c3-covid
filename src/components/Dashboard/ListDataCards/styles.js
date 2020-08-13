@@ -8,10 +8,11 @@ const ListDataCards = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  /* @media ${device.mobileL} {
-    width: 80%;
+  @media ${device.mobileL} {
+    height: 860px;
     margin: 0 auto;
-  } */
+    background: #eaeaea;
+  }
 `;
 
 export default ListDataCards;

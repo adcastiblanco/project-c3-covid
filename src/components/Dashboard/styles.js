@@ -12,18 +12,17 @@ export const DashboardContainer = styled.section`
   grid-template-areas:  'title title menu menu'
                         'list-label list-label list-label list-label'
                         'list-graph list-graph list-graph list-graph';
-  /* align-content: flex-start;
-  justify-content: center; */
   background: #eaeaea;
   @media ${device.mobileL} {
-    grid-template-rows: 80px 80px 200px;
+    height: fit-content;
+    grid-template-rows: 80px 80px 200px 860px;
     grid-template-areas:  'title title title title'
                           'menu menu menu menu'
                           'list-label list-label list-label list-label'
                           'list-graph list-graph list-graph list-graph';
   }
   @media ${device.mobileM} {
-    grid-template-rows: 80px 80px 400px;
+    grid-template-rows: 80px 80px 400px 860px;
     grid-template-areas:  'title title title title'
                           'menu menu menu menu'
                           'list-label list-label list-label list-label'
