@@ -13,6 +13,9 @@ const ListDataCards = styled.div`
     margin: 0 auto;
     background: #eaeaea;
   }
+  @media ${device.mobileL} {
+    width: 90%;
+  }
 `;
 
 export default ListDataCards;

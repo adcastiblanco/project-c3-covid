@@ -17,7 +17,10 @@ export const CovidNumbersItem = styled.div`
   text-align: center;
   border-left: ${({ border }) => dataBorder(border)};
   @media ${device.mobileM} {
-    width: 220px;
+    width: 305px;
+  }
+  @media ${device.mobileS} {
+    width: 255px;
   }
 `;
 
