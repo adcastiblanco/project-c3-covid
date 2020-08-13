@@ -16,12 +16,20 @@ export const DashboardContainer = styled.section`
   justify-content: center; */
   background: #eaeaea;
   @media ${device.mobileL} {
-    grid-template-rows: 15% 15% 70%;
+    grid-template-rows: 80px 80px 200px;
     grid-template-areas:  'title title title title'
                           'menu menu menu menu'
                           'list-label list-label list-label list-label'
                           'list-graph list-graph list-graph list-graph';
   }
+  @media ${device.mobileM} {
+    grid-template-rows: 80px 80px 400px;
+    grid-template-areas:  'title title title title'
+                          'menu menu menu menu'
+                          'list-label list-label list-label list-label'
+                          'list-graph list-graph list-graph list-graph';
+  }
+
 `;
 
 export const HeadingDashboard = styled.div`

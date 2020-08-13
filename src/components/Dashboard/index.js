@@ -4,6 +4,7 @@ import DataCard from './DataCard';
 import RenderAreaChart from './RenderAreaChart';
 import LabelDataCovid from './LabelDataCovid';
 import DropDownMenu from './DropDownMenu';
+import ListLabels from './ListLabels';
 
 import { DashboardContainer, HeadingDashboard } from './styles';
 
@@ -61,20 +62,22 @@ const Dashboard = () => {
         handleSetCountry={handleSetCountry}
         country={country}
       />
-      {/* {country && (
+      {country && (
         <>
-          <LabelDataCovid title='Confirmados' data={lastone.Confirmed} color='Confirmed' />
-          <LabelDataCovid title='Defunciones' data={lastone.Deaths} color='Deaths' />
-          <LabelDataCovid title='Activos' data={lastone.Active} color='Active' />
-          <LabelDataCovid title='Recuperados' data={lastone.Recovered} color='Recovered' />
-          <DataCard title='Confirmados vs Defunciones' containerClass='one'>
+          <ListLabels>
+            <LabelDataCovid title='Confirmados' data={lastone.Confirmed} color='Confirmed' />
+            <LabelDataCovid title='Defunciones' data={lastone.Deaths} color='Deaths' />
+            <LabelDataCovid title='Activos' data={lastone.Active} color='Active' />
+            <LabelDataCovid title='Recuperados' data={lastone.Recovered} color='Recovered' />
+          </ListLabels>
+          {/* <DataCard title='Confirmados vs Defunciones' containerClass='one'>
             <RenderAreaChart data={data} graph1='Confirmed' graph2='Deaths' />
           </DataCard>
           <DataCard title='Activos vs Recuperados' containerClass='two'>
             <RenderAreaChart data={data} graph1='Active' graph2='Recovered' />
-          </DataCard>
+          </DataCard> */}
         </>
-      )} */}
+      )}
     </DashboardContainer>
   );
 };
