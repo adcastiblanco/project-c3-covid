@@ -13,7 +13,7 @@ export const GraphContainer = styled.div`
     margin: 20px auto;
   }
   @media ${device.tablet} {
-    width: 80%;
+    width: 49%;
     margin: 20px auto;
   }
   @media ${device.mobileL} {
