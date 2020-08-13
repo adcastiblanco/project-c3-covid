@@ -21,10 +21,6 @@ export const MenuContainer = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-  @media ${device.mobileL} {
-    grid-row: 2 / 3;
-    grid-column: 1 / 5;
-  }
 `;
 
 export const SelectCountry = styled.div`
@@ -37,6 +33,9 @@ export const SelectCountry = styled.div`
   width: 80%;
   padding: 0 5%;
   box-sizing: border-box;
+  @media ${device.mobileL} {
+    width: 90%;
+  }
 `;
 
 export const ListCountries = styled.ul`
@@ -50,6 +49,9 @@ export const ListCountries = styled.ul`
   top: 84%;
   height: 255px;
   overflow-y: scroll;
+  @media ${device.mobileL} {
+    width: 90%;
+  }
 `;
 
 export const CountryItem = styled.li`

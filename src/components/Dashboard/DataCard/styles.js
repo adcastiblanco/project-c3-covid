@@ -18,7 +18,7 @@ export const GraphContainer = styled.div`
     margin: 20px auto;
   }
   @media ${device.mobileL} {
-    width: 80%;
+    /* width: 80%; */
     height: 45%;
     margin: auto 0;
     margin-top: 5%;
