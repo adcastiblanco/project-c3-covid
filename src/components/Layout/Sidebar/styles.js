@@ -32,6 +32,10 @@ export const Aside = styled.aside`
     transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-101%)')};
     transition: 0.3s;
   }
+
+  @media ${device.mobileL} {
+    right: 30%;
+  }
 `;
 
 export const SidebarList = styled.ul`
