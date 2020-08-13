@@ -18,7 +18,7 @@ export const DashboardContainer = styled.section`
     grid-template-rows: 15%;
   }
   @media ${device.tablet} {
-    grid-template-rows: 9%;
+    grid-template-rows: 11%;
   }
   @media ${device.mobileL} {
     height: fit-content;

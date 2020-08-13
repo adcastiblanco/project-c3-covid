@@ -16,15 +16,13 @@ const Header = () => {
     if (username !== undefined) {
       return (
         <>
-          <NavItem className='header-menu__item'>
+          <NavItem className="header-menu__item welcome">
             <p>
-              Bienvenido
-              {' '}
-              <span>{ username }</span>
+              Bienvenido <span>{username}</span>
             </p>
           </NavItem>
-          <NavItem className='header-menu__item'>
-            <Link to='/login' onClick={() => window.localStorage.clear()}>
+          <NavItem className="header-menu__item">
+            <Link to="/login" onClick={() => window.localStorage.clear()}>
               Cerrar sesión
             </Link>
           </NavItem>
@@ -32,29 +30,21 @@ const Header = () => {
       );
     }
     return (
-      <NavItem className='header-menu__item'>
-        <Link to='/login'>Iniciar Sesión</Link>
+      <NavItem className="header-menu__item">
+        <Link to="/login">Iniciar Sesión</Link>
       </NavItem>
     );
   };
   return (
     <MainHeader>
       <LogoContainer>
-        <Link to='/'>
-          <img src={logo} alt='' />
+        <Link to="/">
+          <img src={logo} alt="" />
         </Link>
       </LogoContainer>
-      <MenuHeader className='header'>
-        <NavMenu className='header-menu'>
-          <NavList className='header-menu__list'>
-            <NavItem className='header-menu__item'>
-              <Link to='/'>Inicio</Link>
-            </NavItem>
-            <NavItem className='header-menu__item'>
-              <Link to='/'>Perfil</Link>
-            </NavItem>
-            {session()}
-          </NavList>
+      <MenuHeader className="header">
+        <NavMenu className="header-menu">
+          <NavList className="header-menu__list">{session()}</NavList>
         </NavMenu>
       </MenuHeader>
     </MainHeader>

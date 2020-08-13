@@ -12,10 +12,10 @@ export const CovidNumbersItem = styled.div`
   border-radius: 5px;
   background-color: var(--white-color);
   width: 140px;
-  height: 70px;
+  height: 55px;
   padding: 5px;
   text-align: center;
-  border-left: ${({ border }) => (dataBorder(border))};
+  border-left: ${({ border }) => dataBorder(border)};
   @media ${device.mobileM} {
     width: 220px;
   }

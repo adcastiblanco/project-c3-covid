@@ -5,14 +5,19 @@ export const GraphContainer = styled.div`
   background-color: var(--white-color);
   border-radius: 5px;
   width: 355px;
+  @media ${device.laptopL} {
+    width: 480px;
+  }
+  @media ${device.laptop} {
+    width: 360px;
+    margin: 20px auto;
+  }
   @media ${device.tablet} {
-    height: 380px;
     width: 80%;
     margin: 20px auto;
   }
   @media ${device.mobileL} {
-    height: 380px;
-    width: 80%;
+    width: 90%;
     margin: 10px auto 0;
   }
 `;

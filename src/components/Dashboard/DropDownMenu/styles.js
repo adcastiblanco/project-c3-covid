@@ -7,7 +7,7 @@ const animationCountriesList = keyframes`
   }
 
   to {
-    height: 300px;
+    height: 255px;
   }
 `;
 
@@ -48,7 +48,7 @@ export const ListCountries = styled.ul`
   width: 80%;
   position: absolute;
   top: 84%;
-  height: 300px;
+  height: 255px;
   overflow-y: scroll;
 `;
 

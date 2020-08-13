@@ -23,17 +23,14 @@ export const Aside = styled.aside`
   }
 
   @media ${device.tablet} {
-    position: absolute;
+    position: fixed;
     top: 54px;
-    height: 90%;
+    height: 87vh;
     bottom: 0px;
     left: 0px;
     right: 50%;
     transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
     transition: 0.3s;
-  }
-  @media ${device.mobileL} {
-    height: 100%;
   }
 `;
 
