@@ -11,10 +11,10 @@ const App = () => (
   <BrowserRouter>
     <GlobalStyles />
     <Switch>
-      <Route exact path='/login' component={LoginRegister} />
+      <Route exact path="/login" component={LoginRegister} />
       <Layout>
-        <Route exact path='/' component={Home} />
-        <Route exact path='/RegisterSymptoms' component={RegisterSymptoms} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/RegisterSymptoms" component={RegisterSymptoms} />
       </Layout>
     </Switch>
   </BrowserRouter>
