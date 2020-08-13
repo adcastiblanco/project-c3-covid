@@ -42,6 +42,7 @@ export const SelectCountry = styled.div`
 export const ListCountries = styled.ul`
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
   animation: ${animationCountriesList} 0.3s alternate;
+  z-index: 1;
   padding: 0;
   margin: 0;
   width: 80%;

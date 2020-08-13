@@ -4,12 +4,16 @@ import { device } from '../../../assets/styles/Breakpoints';
 export const GraphContainer = styled.div`
   background-color: var(--white-color);
   border-radius: 5px;
-  height: 100%;
   width: 355px;
-  @media ${device.mobileL} {
+  @media ${device.tablet} {
     height: 380px;
     width: 80%;
     margin: 20px auto;
+  }
+  @media ${device.mobileL} {
+    height: 380px;
+    width: 80%;
+    margin: 10px auto 0;
   }
 `;
 
