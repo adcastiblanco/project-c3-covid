@@ -5,22 +5,36 @@ export const DashboardContainer = styled.section`
   width: 100%;
   height: 100%;
   grid-area: content;
-  background: #eaeaea;
-  grid-gap: 1.5%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 15% 15% 70%;
-  align-content: flex-start;
-  justify-content: center;
-  @media ${device.tablet} {
-    grid-template-columns: repeat();
+  grid-gap: 1.5%;
+  grid-template-areas:  'title title menu menu'
+                        'list-label list-label list-label list-label'
+                        'list-graph list-graph list-graph list-graph';
+  background: #eaeaea;
+  @media ${device.mobileL} {
+    height: fit-content;
+    grid-template-rows: 80px 80px 200px 860px;
+    grid-template-areas:  'title title title title'
+                          'menu menu menu menu'
+                          'list-label list-label list-label list-label'
+                          'list-graph list-graph list-graph list-graph';
   }
+  @media ${device.mobileM} {
+    grid-template-rows: 80px 80px 400px 860px;
+    grid-template-areas:  'title title title title'
+                          'menu menu menu menu'
+                          'list-label list-label list-label list-label'
+                          'list-graph list-graph list-graph list-graph';
+  }
+
 `;
 
 export const HeadingDashboard = styled.div`
+  grid-area: title;
   text-align: center;
   margin: 0 auto;
-  grid-column: 1/ 3;
   span {
     background: -webkit-linear-gradient(
       left,
