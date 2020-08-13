@@ -24,8 +24,6 @@ npm run build
 
 ## Built with 🛠️
 
-_Menciona las herramientas que utilizaste para crear tu proyecto_
-
 - [JavaScript](https://www.javascript.com/) - Programming Language
 - [ReactJS](https://es.reactjs.org/) - Web Framework
 - [StyledComponents](https://styled-components.com/) - library to stylize components
@@ -36,7 +34,7 @@ _Menciona las herramientas que utilizaste para crear tu proyecto_
 
 ## Authors ✒️
 
-- **Angel Castiblanco** - _Frontend Developer_ - [adcastiblanco](https://gist.github.com/adcastiblanco)
+- **Angel Castiblanco** - _Frontend Developer_ - [adcastiblanco](https://github.com/adcastiblanco)
 - **Julian Builes** - _Fullstack Developer_ - [juanchobuiles](https://github.com/juanchobuiles)
 - **Luis Lazcano** - _Backend Developer_ - [Luis-Lazcano](https://github.com/Luis-Lazcano)
 
