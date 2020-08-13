@@ -9,7 +9,7 @@ const ListDataCards = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   @media ${device.mobileL} {
-    height: 860px;
+    height: 700px;
     margin: 0 auto;
     background: #eaeaea;
   }
