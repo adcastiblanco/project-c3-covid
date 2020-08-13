@@ -22,7 +22,7 @@ export const DashboardContainer = styled.section`
   }
   @media ${device.mobileL} {
     height: fit-content;
-    grid-template-rows: 80px 80px;
+    grid-template-rows: 80px 80px 200px;
     grid-gap: 0;
     grid-template-areas:
       'title title title title'
