@@ -1,12 +1,12 @@
-import React from 'react'
-import FormSymptoms from '../components/FormSymptoms'
+import React from 'react';
+import FormSymptoms from '../components/FormSymptoms';
 
 function RegisterSymptoms() {
-    return (
-        <>
-            <FormSymptoms />
-        </>
-    )
+  return (
+    <>
+      <FormSymptoms />
+    </>
+  );
 }
 
-export default RegisterSymptoms
+export default RegisterSymptoms;

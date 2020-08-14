@@ -9,6 +9,11 @@ import {
   NavItem,
 } from './styles';
 import logo from '../../../assets/images/brand.png';
+import { SignOut } from '../../../services/AuthServices';
+
+const handleSingOut = (event) => {
+  SignOut();
+};
 
 const Header = () => {
   const session = () => {
@@ -16,13 +21,13 @@ const Header = () => {
     if (username !== undefined) {
       return (
         <>
-          <NavItem className="header-menu__item welcome">
+          <NavItem className="header-menu__item">
             <p>
-              Bienvenido <span>{username}</span>
+              Bienvenido <span>{` ${username}`}</span>
             </p>
           </NavItem>
           <NavItem className="header-menu__item">
-            <Link to="/login" onClick={() => window.localStorage.clear()}>
+            <Link to="/login" onClick={handleSingOut}>
               Cerrar sesión
             </Link>
           </NavItem>
@@ -44,7 +49,15 @@ const Header = () => {
       </LogoContainer>
       <MenuHeader className="header">
         <NavMenu className="header-menu">
-          <NavList className="header-menu__list">{session()}</NavList>
+          <NavList className="header-menu__list">
+            <NavItem className="header-menu__item">
+              <Link to="/">Inicio</Link>
+            </NavItem>
+            <NavItem className="header-menu__item">
+              <Link to="/">Perfil</Link>
+            </NavItem>
+            {session()}
+          </NavList>
         </NavMenu>
       </MenuHeader>
     </MainHeader>
