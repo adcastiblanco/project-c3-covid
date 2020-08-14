@@ -7,19 +7,13 @@ const Sidebar = ({ open }) => {
     <Aside open={open}>
       <SidebarList>
         <SidebarItem>
-          <Link to='/'>Estadisticas</Link>
+          <Link to="/">Estadisticas</Link>
         </SidebarItem>
         <SidebarItem>
-          <Link to='/RegisterSymptoms'>Registrar sintomas</Link>
+          <Link to="/RegisterSymptoms">Registrar sintomas</Link>
         </SidebarItem>
         <SidebarItem>
-          <Link to='/'>Consejos de cuidado</Link>
-        </SidebarItem>
-        <SidebarItem>
-          <Link to='/'>Sobre el COVID-19</Link>
-        </SidebarItem>
-        <SidebarItem>
-          <Link to='/'>Acerca de nosotros</Link>
+          <Link to="/about-us">Acerca de nosotros</Link>
         </SidebarItem>
       </SidebarList>
       <p>

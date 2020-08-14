@@ -1,9 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 import Layout from '../components/Layout';
+
 import Home from '../containers/Home';
 import LoginRegister from '../containers/LoginRegister';
 import RegisterSymptoms from '../containers/RegisterSymptoms';
+import AboutUs from '../containers/AboutUs';
+
 import GlobalStyles from '../assets/styles/GlobalStyles';
 import '../assets/styles/Main.scss';
 
@@ -15,6 +19,7 @@ const App = () => (
       <Layout>
         <Route exact path="/" component={Home} />
         <Route exact path="/RegisterSymptoms" component={RegisterSymptoms} />
+        <Route exact path="/about-us" component={AboutUs} />
       </Layout>
     </Switch>
   </BrowserRouter>
