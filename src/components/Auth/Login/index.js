@@ -34,7 +34,6 @@ const Login = React.forwardRef((props, ref) => {
 
     const singIn = await SingInEmailPassword(form.email, form.password);
     if (singIn.data !== null) {
-      const response = await getTokenId(singIn.data);
       swal({
         title: 'Good job!',
         text: 'You clicked the button!',
@@ -43,9 +42,9 @@ const Login = React.forwardRef((props, ref) => {
       });
 
       //**save username in local storage */
-      localStorage.setItem('username', response.data.username);
-      localStorage.setItem('id_user', response.data._id);
-      localStorage.setItem('token', response.token);
+      localStorage.setItem('username', singIn.data.username);
+      localStorage.setItem('id_user', singIn.data._id);
+      localStorage.setItem('token', singIn.token);
       setTimeout(() => {
         location.href = '/';
       }, 2000);

@@ -146,14 +146,18 @@ const FormSymptoms = () => {
               ? '¡Tu salud puede estar en peligro!'
               : response.data.alert === 'Amarilla'
               ? '¡Cuida tu salud!'
-              : '¡Sigue así!',
+              : response.data.alert === 'Verde'
+              ? '¡Sigue así!'
+              : '',
           text: response.data.message,
           icon:
             response.data.alert === 'Roja'
               ? 'error'
-              : response.alert === 'Amarilla'
+              : response.data.alert === 'Amarilla'
               ? 'warning'
-              : 'success',
+              : response.data.alert === 'Verde'
+              ? 'success'
+              : '',
           button: '¡OK!',
         }).then((response) => {
           location.href = '/';
