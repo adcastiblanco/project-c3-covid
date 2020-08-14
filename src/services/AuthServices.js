@@ -208,3 +208,13 @@ export async function CreateUser(email, password, displayName) {
     return error;
   }
 }
+
+export function SignOut() {
+  firebaseConfig
+    .auth()
+    .signOut()
+    .then((response) => {
+      console.log(response);
+      localStorage.clear();
+    });
+}
