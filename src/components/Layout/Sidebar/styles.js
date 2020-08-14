@@ -7,7 +7,7 @@ export const Aside = styled.aside`
   z-index: 2;
   display: flex;
   flex-flow: column;
-  height: 104.3%;
+  height: 105.3%;
   justify-content: space-between;
   padding-bottom: 10px;
   box-shadow: 1px 1px 4px -1px #252a34;
