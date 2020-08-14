@@ -44,6 +44,10 @@ export const Form = styled.form`
         grid-template-rows: repeat(4, 65px);
         grid-template-columns: 1fr;
       }
+      @media ${device.mobileL} {
+        grid-template-rows: repeat(4, 90px);
+        grid-template-columns: 1fr;
+      }
     }
   }
 `;
