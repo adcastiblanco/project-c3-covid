@@ -29,6 +29,22 @@ export async function SingInEmailPassword(email, password) {
         };
         return res;
       });
+
+    try {
+      if (res.data != null) {
+        const userId = await getUserId(res.data._id);
+        const response = await getTokenId({
+          username: `${userId.data.first_name} ${userId.data.last_name}`,
+          _id: userId.data._id,
+        });
+        return response;
+      } else {
+        return res;
+      }
+    } catch (error) {
+      return error;
+    }
+
     return res;
   } catch (error) {
     return error;

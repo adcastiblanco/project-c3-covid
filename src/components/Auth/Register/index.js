@@ -3,7 +3,11 @@ import SocialMedia from '../../SocialMedia';
 import swal from 'sweetalert';
 import loader from '../../../assets/images/loader.gif';
 
-import { CreateUser, RegisterUser, getTokenId } from '../../../services/AuthServices';
+import {
+  CreateUser,
+  RegisterUser,
+  getTokenId,
+} from '../../../services/AuthServices';
 
 const Register = React.forwardRef((props, ref) => {
   const [form, setForm] = useState({
@@ -16,8 +20,8 @@ const Register = React.forwardRef((props, ref) => {
     password: '',
   });
   let removePanel = (event) => {
-    event.preventDefault()
-    ref.current.classList.remove("right-panel-active");
+    event.preventDefault();
+    ref.current.classList.remove('right-panel-active');
   };
   const handleChange = (event) => {
     let inputElement = event.currentTarget;
@@ -102,6 +106,8 @@ const Register = React.forwardRef((props, ref) => {
         });
         //**save username in local storage */
         localStorage.setItem('username', singIn.data.username);
+        localStorage.setItem('id_user', singIn.data._id);
+        localStorage.setItem('token', singIn.token);
         setTimeout(() => {
           location.href = '/';
         }, 2000);
@@ -122,7 +128,13 @@ const Register = React.forwardRef((props, ref) => {
     <div className="form-container sign-up-container">
       <div className="login-panel">
         <h3>¿Ya tienes una cuenta creada?</h3>
-        <button className="form-button overlay-button ghost" id="signUp" onClick={removePanel}>Sign In</button>
+        <button
+          className="form-button overlay-button ghost"
+          id="signUp"
+          onClick={removePanel}
+        >
+          Sign In
+        </button>
       </div>
       <form
         action="post"
