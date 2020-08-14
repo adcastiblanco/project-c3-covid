@@ -21,7 +21,7 @@ const Header = () => {
     if (username !== undefined) {
       return (
         <>
-          <NavItem className="header-menu__item">
+          <NavItem className="header-menu__item welcome">
             <p>
               Bienvenido <span>{` ${username}`}</span>
             </p>
@@ -49,15 +49,7 @@ const Header = () => {
       </LogoContainer>
       <MenuHeader className="header">
         <NavMenu className="header-menu">
-          <NavList className="header-menu__list">
-            <NavItem className="header-menu__item">
-              <Link to="/">Inicio</Link>
-            </NavItem>
-            <NavItem className="header-menu__item">
-              <Link to="/">Perfil</Link>
-            </NavItem>
-            {session()}
-          </NavList>
+          <NavList className="header-menu__list">{session()}</NavList>
         </NavMenu>
       </MenuHeader>
     </MainHeader>
