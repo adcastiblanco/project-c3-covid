@@ -39,8 +39,9 @@ export const Form = styled.form`
     }
     & .two-SubContainer {
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: repeat(4, 30px);
+      grid-template-rows: repeat(2, 70px);
       @media ${device.tablet} {
+        grid-template-rows: repeat(4, 65px);
         grid-template-columns: 1fr;
       }
     }

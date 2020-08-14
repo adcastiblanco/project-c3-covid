@@ -270,7 +270,7 @@ const FormSymptoms = () => {
               answerText: 'Dolor de garganta',
             },
             {
-              name: 'b',
+              name: 'g',
               onChange: handleQuestion_3Change,
               attributes: 'cough',
               answerText: 'Tos',
