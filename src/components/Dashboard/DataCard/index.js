@@ -1,10 +1,9 @@
 import React from 'react';
+import { GraphContainer, GraphTitle, GraphItem } from './styles';
 
-import { GraphContainer, GraphTitle, GraphItem } from './styles'
-
-const DataCard = ({ title, children, containerClass }) => {
+const DataCard = ({ title, children }) => {
   return (
-    <GraphContainer className={containerClass}>
+    <GraphContainer>
       <GraphTitle>{title}</GraphTitle>
       <GraphItem className='graph'>
         {children}

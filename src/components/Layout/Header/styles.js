@@ -12,6 +12,8 @@ export const MainHeader = styled.header`
   width: 100%;
   @media ${device.tablet} {
     grid-template-columns: 50px repeat(5, 1fr);
+    position: fixed;
+    z-index: 3;
   }
 `;
 
@@ -35,6 +37,9 @@ export const LogoContainer = styled.figure`
   @media ${device.tablet} {
     grid-column: 2 / 3;
   }
+  @media ${device.mobileL} {
+    grid-column: 2 / 4;
+  }
 `;
 
 export const MenuHeader = styled.menu`
@@ -42,6 +47,12 @@ export const MenuHeader = styled.menu`
   margin: 0;
   @media ${device.tablet} {
     grid-column: 3 / 7;
+  }
+  @media ${device.mobileL} {
+    grid-column: 4 / 7;
+    .welcome {
+      display: none;
+    }
   }
 `;
 

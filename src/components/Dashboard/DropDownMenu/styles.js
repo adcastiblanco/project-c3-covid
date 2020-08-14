@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { device } from '../../../assets/styles/Breakpoints';
 
 const animationCountriesList = keyframes`
   from {
@@ -6,11 +7,12 @@ const animationCountriesList = keyframes`
   }
 
   to {
-    height: 300px;
+    height: 255px;
   }
 `;
 
 export const MenuContainer = styled.div`
+  grid-area: menu;
   position: relative;
   top: 0;
   align-items: center;
@@ -19,8 +21,6 @@ export const MenuContainer = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-  grid-row: 1 / 2;
-  grid-column: 3 / 5;
 `;
 
 export const SelectCountry = styled.div`
@@ -30,21 +30,28 @@ export const SelectCountry = styled.div`
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-  width: 70%;
+  width: 80%;
   padding: 0 5%;
   box-sizing: border-box;
+  @media ${device.mobileL} {
+    width: 90%;
+  }
 `;
 
 export const ListCountries = styled.ul`
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
   animation: ${animationCountriesList} 0.3s alternate;
+  z-index: 1;
   padding: 0;
   margin: 0;
-  width: 70%;
+  width: 80%;
   position: absolute;
   top: 84%;
-  height: 300px;
+  height: 255px;
   overflow-y: scroll;
+  @media ${device.mobileL} {
+    width: 90%;
+  }
 `;
 
 export const CountryItem = styled.li`

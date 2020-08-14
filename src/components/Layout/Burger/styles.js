@@ -19,6 +19,9 @@ const StyledBurger = styled.button`
   &:focus {
     outline: none;
   }
+  @media ${device.tablet} {
+    position: fixed;
+  }
 
   div {
     width: 2rem;
@@ -34,7 +37,7 @@ const StyledBurger = styled.button`
     display: flex;
     grid-column: 2 / 3;
     /* background: blue; */
-}
+  }
 `;
 
 export default StyledBurger;

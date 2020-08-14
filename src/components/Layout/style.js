@@ -16,7 +16,6 @@ const App = styled.div`
       'head head head head'
       'content content content content'
       'footer footer footer footer';
-    grid-template-rows: 55px 600px 35px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 `;

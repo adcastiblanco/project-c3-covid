@@ -1,26 +1,50 @@
 import styled from 'styled-components';
 import { device } from '../../assets/styles/Breakpoints';
+import 'antd/dist/antd.css';
 
 export const DashboardContainer = styled.section`
   width: 100%;
   height: 100%;
   grid-area: content;
-  background: #eaeaea;
-  grid-gap: 1.5%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 15% 15% 70%;
-  align-content: flex-start;
-  justify-content: center;
+  grid-template-rows: 16% 16% 68%;
+  grid-gap: 1.5%;
+  grid-template-areas:
+    'title title menu menu'
+    'list-label list-label list-label list-label'
+    'list-graph list-graph list-graph list-graph';
+  background: #eaeaea;
+  @media ${device.laptop} {
+    grid-template-rows: 15%;
+  }
   @media ${device.tablet} {
-    grid-template-columns: repeat();
+    grid-template-rows: 16%;
+  }
+  @media ${device.mobileL} {
+    height: fit-content;
+    grid-template-rows: 80px 80px 200px;
+    grid-gap: 0;
+    grid-template-areas:
+      'title title title title'
+      'menu menu menu menu'
+      'list-label list-label list-label list-label'
+      'list-graph list-graph list-graph list-graph';
+  }
+  @media ${device.mobileM} {
+    grid-template-rows: 80px 80px 300px;
+    grid-template-areas:
+      'title title title title'
+      'menu menu menu menu'
+      'list-label list-label list-label list-label'
+      'list-graph list-graph list-graph list-graph';
   }
 `;
 
 export const HeadingDashboard = styled.div`
+  grid-area: title;
   text-align: center;
   margin: 0 auto;
-  grid-column: 1/ 3;
   span {
     background: -webkit-linear-gradient(
       left,

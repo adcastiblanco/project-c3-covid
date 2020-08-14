@@ -4,6 +4,7 @@ import { device } from '../../../assets/styles/Breakpoints';
 export const Aside = styled.aside`
   background: #1d2129;
   grid-area: side;
+  z-index: 2;
   display: flex;
   flex-flow: column;
   height: 104.3%;
@@ -22,12 +23,18 @@ export const Aside = styled.aside`
   }
 
   @media ${device.tablet} {
-    position: absolute;
+    position: fixed;
     top: 54px;
+    height: 100vh;
     bottom: 0px;
     left: 0px;
-    right: 50%;
-    transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
+    right: 60%;
+    transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-101%)')};
+    transition: 0.3s;
+  }
+
+  @media ${device.mobileL} {
+    right: 30%;
   }
 `;
 

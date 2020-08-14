@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../../assets/styles/Breakpoints';
 import { dataBorder } from '../../../utils/dataColors';
 
 export const CovidNumbersContainer = styled.div`
@@ -10,11 +11,17 @@ export const CovidNumbersItem = styled.div`
   align-self: center;
   border-radius: 5px;
   background-color: var(--white-color);
-  width: 80%;
-  height: 65%;
+  width: 140px;
+  height: 55px;
   padding: 5px;
   text-align: center;
-  border-left: ${({ border }) => (dataBorder(border))}
+  border-left: ${({ border }) => dataBorder(border)};
+  @media ${device.mobileM} {
+    width: 305px;
+  }
+  @media ${device.mobileS} {
+    width: 255px;
+  }
 `;
 
 export const CovidNumbersTitle = styled.h5`
