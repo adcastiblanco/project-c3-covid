@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { device } from '../../assets/styles/Breakpoints';
+import 'antd/dist/antd.css';
 
 export const DashboardContainer = styled.section`
   width: 100%;

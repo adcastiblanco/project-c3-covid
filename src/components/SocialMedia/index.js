@@ -24,6 +24,8 @@ const SocialMedia = () => {
         icon: 'success',
       });
       localStorage.setItem('username', response.data.username);
+      localStorage.setItem('id_user', response.data._id);
+      localStorage.setItem('token', response.token);
       setTimeout(() => {
         location.href = '/';
       }, 1000);
