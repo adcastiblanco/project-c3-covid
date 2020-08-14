@@ -13,12 +13,11 @@ export const GraphContainer = styled.div`
     margin: 20px auto;
   }
   @media ${device.tablet} {
-    width: 360px;
-    height: 90%;
+    width: 45%;
     margin: 20px auto;
   }
   @media ${device.mobileL} {
-    /* width: 80%; */
+    width: 100%;
     height: 45%;
     margin: auto 0;
     margin-top: 5%;

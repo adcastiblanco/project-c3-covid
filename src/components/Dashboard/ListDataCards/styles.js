@@ -6,9 +6,9 @@ const ListDataCards = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-around;
   @media ${device.mobileL} {
+    flex-wrap: wrap;
     height: 700px;
     margin: 0 auto;
     background: #eaeaea;
