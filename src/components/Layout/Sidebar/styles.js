@@ -25,12 +25,16 @@ export const Aside = styled.aside`
   @media ${device.tablet} {
     position: fixed;
     top: 54px;
-    height: 87vh;
+    height: 100vh;
     bottom: 0px;
     left: 0px;
-    right: 50%;
-    transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
+    right: 60%;
+    transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-101%)')};
     transition: 0.3s;
+  }
+
+  @media ${device.mobileL} {
+    right: 30%;
   }
 `;
 

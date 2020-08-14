@@ -13,12 +13,15 @@ export const GraphContainer = styled.div`
     margin: 20px auto;
   }
   @media ${device.tablet} {
-    width: 49%;
+    width: 360px;
+    height: 90%;
     margin: 20px auto;
   }
   @media ${device.mobileL} {
-    width: 90%;
-    margin: 10px auto 0;
+    /* width: 80%; */
+    height: 45%;
+    margin: auto 0;
+    margin-top: 5%;
   }
 `;
 

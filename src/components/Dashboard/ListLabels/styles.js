@@ -9,7 +9,8 @@ const ListLabels = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   @media ${device.mobileL} {
-    width: 80%;
+  justify-content: space-between;
+    width: 86%;
     margin: 0 auto;
   }
 `;

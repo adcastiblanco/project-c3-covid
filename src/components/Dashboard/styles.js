@@ -19,11 +19,11 @@ export const DashboardContainer = styled.section`
     grid-template-rows: 15%;
   }
   @media ${device.tablet} {
-    grid-template-rows: 20%;
+    grid-template-rows: 16%;
   }
   @media ${device.mobileL} {
     height: fit-content;
-    grid-template-rows: 80px 80px;
+    grid-template-rows: 80px 80px 200px;
     grid-gap: 0;
     grid-template-areas:
       'title title title title'
