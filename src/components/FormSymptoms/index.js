@@ -260,7 +260,7 @@ const FormSymptoms = () => {
             {
               name: 'e',
               onChange: handleQuestion_3Change,
-              attributes: 'cough',
+              attributes: 'pain',
               answerText: 'Dolores musculares',
             },
             {
@@ -278,17 +278,17 @@ const FormSymptoms = () => {
             {
               name: 'h',
               onChange: handleQuestion_3Change,
-              attributes: 'taste',
+              attributes: 'vomit',
               answerText: 'Náuseas, vómitos o diarrea.',
             },
             {
               name: 'i',
               onChange: handleQuestion_3Change,
-              attributes: 'taste',
+              attributes: 'painHead',
               answerText: 'Dolor de cabeza.',
             },
             {
-              attributes: 'none',
+              attributes: 'none2',
               onChange: handleInputNoneChange,
               answerText: 'Ninguna de las anteriores',
             },
