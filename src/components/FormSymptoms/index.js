@@ -64,13 +64,12 @@ const FormSymptoms = () => {
   const handleInputNoneChange = (event) => {
     const target = event.target;
     const parent = target.parentElement.parentElement;
-    console.log(parent);
     if (parent.classList[3] === 'question_3') {
       const inputs = parent.querySelectorAll('input');
 
       /** Uncheked all inputs of container */
       inputs.forEach((element) => {
-        if (element.checked && element.id != 'none') {
+        if (element.checked && element.id != 'none2') {
           element.checked = false;
         }
       });
@@ -173,9 +172,6 @@ const FormSymptoms = () => {
           location.href = '/';
         });
       }
-      // setTimeout(() => {
-      //   location.href = '/';
-      // }, 2000);
     } catch (error) {
       swal({
         title: 'Error',
