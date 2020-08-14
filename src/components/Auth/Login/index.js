@@ -3,7 +3,10 @@ import SocialMedia from '../../SocialMedia';
 import swal from 'sweetalert';
 import loader from '../../../assets/images/loader.gif';
 
-import { SingInEmailPassword, getTokenId } from '../../../services/AuthServices';
+import {
+  SingInEmailPassword,
+  getTokenId,
+} from '../../../services/AuthServices';
 
 const Login = React.forwardRef((props, ref) => {
   const [form, setValues] = useState({
@@ -12,9 +15,9 @@ const Login = React.forwardRef((props, ref) => {
   });
 
   let addPanel = (event) => {
-    event.preventDefault()
-    ref.current.classList.add("right-panel-active");
-  }
+    event.preventDefault();
+    ref.current.classList.add('right-panel-active');
+  };
   const handleInput = (event) => {
     setValues({
       ...form,
@@ -41,6 +44,8 @@ const Login = React.forwardRef((props, ref) => {
 
       //**save username in local storage */
       localStorage.setItem('username', response.data.username);
+      localStorage.setItem('id_user', response.data._id);
+      localStorage.setItem('token', response.token);
       setTimeout(() => {
         location.href = '/';
       }, 2000);
@@ -57,7 +62,13 @@ const Login = React.forwardRef((props, ref) => {
     <div className="form-container sign-in-container">
       <div className="register-panel">
         <h3>¿Aún no tienes una cuenta?</h3>
-        <button className="form-button overlay-button ghost" id="signIn" onClick={addPanel}>Sign Up</button>
+        <button
+          className="form-button overlay-button ghost"
+          id="signIn"
+          onClick={addPanel}
+        >
+          Sign Up
+        </button>
       </div>
       <form action="#" className="form-login-register" onSubmit={handleSubmit}>
         <h1>Sign in</h1>
